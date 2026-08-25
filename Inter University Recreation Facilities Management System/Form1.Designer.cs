@@ -34,6 +34,9 @@
             this.lbl_Username = new System.Windows.Forms.Label();
             this.lbl_Password = new System.Windows.Forms.Label();
             this.btn_Login = new System.Windows.Forms.Button();
+            this.lbl_ForgotPassword = new System.Windows.Forms.Label();
+            this.lbl_Register = new System.Windows.Forms.Label();
+            this.chb_ShowPassword = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // lbl_Login
@@ -63,11 +66,12 @@
             // txtBox_Password
             // 
             this.txtBox_Password.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBox_Password.Font = new System.Drawing.Font("Leelawadee UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBox_Password.Font = new System.Drawing.Font("Leelawadee UI", 19.8F, System.Drawing.FontStyle.Bold);
             this.txtBox_Password.Location = new System.Drawing.Point(145, 417);
             this.txtBox_Password.Name = "txtBox_Password";
             this.txtBox_Password.Size = new System.Drawing.Size(693, 51);
             this.txtBox_Password.TabIndex = 2;
+            this.txtBox_Password.UseSystemPasswordChar = true;
             this.txtBox_Password.TextChanged += new System.EventHandler(this.txtBox_Password_TextChanged);
             // 
             // lbl_Username
@@ -92,19 +96,59 @@
             // 
             // btn_Login
             // 
-            this.btn_Login.Location = new System.Drawing.Point(414, 527);
+            this.btn_Login.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Login.Location = new System.Drawing.Point(324, 548);
             this.btn_Login.Name = "btn_Login";
-            this.btn_Login.Size = new System.Drawing.Size(154, 53);
+            this.btn_Login.Size = new System.Drawing.Size(335, 53);
             this.btn_Login.TabIndex = 5;
             this.btn_Login.Text = "Login";
             this.btn_Login.UseVisualStyleBackColor = true;
             this.btn_Login.Click += new System.EventHandler(this.btn_Login_Click);
             // 
+            // lbl_ForgotPassword
+            // 
+            this.lbl_ForgotPassword.AutoSize = true;
+            this.lbl_ForgotPassword.Font = new System.Drawing.Font("Bahnschrift SemiBold", 11F, System.Drawing.FontStyle.Bold);
+            this.lbl_ForgotPassword.ForeColor = System.Drawing.Color.Blue;
+            this.lbl_ForgotPassword.Location = new System.Drawing.Point(675, 471);
+            this.lbl_ForgotPassword.Name = "lbl_ForgotPassword";
+            this.lbl_ForgotPassword.Size = new System.Drawing.Size(163, 23);
+            this.lbl_ForgotPassword.TabIndex = 6;
+            this.lbl_ForgotPassword.Text = "Forgot Password?";
+            this.lbl_ForgotPassword.Click += new System.EventHandler(this.lbl_ForgotPassword_Click);
+            // 
+            // lbl_Register
+            // 
+            this.lbl_Register.AutoSize = true;
+            this.lbl_Register.Font = new System.Drawing.Font("Bahnschrift SemiBold", 11F, System.Drawing.FontStyle.Bold);
+            this.lbl_Register.ForeColor = System.Drawing.Color.Blue;
+            this.lbl_Register.Location = new System.Drawing.Point(371, 604);
+            this.lbl_Register.Name = "lbl_Register";
+            this.lbl_Register.Size = new System.Drawing.Size(241, 23);
+            this.lbl_Register.TabIndex = 7;
+            this.lbl_Register.Text = "No Account ? Register Here";
+            this.lbl_Register.Click += new System.EventHandler(this.lbl_Register_Click);
+            // 
+            // chb_ShowPassword
+            // 
+            this.chb_ShowPassword.AutoSize = true;
+            this.chb_ShowPassword.Font = new System.Drawing.Font("Bahnschrift SemiBold", 11F, System.Drawing.FontStyle.Bold);
+            this.chb_ShowPassword.Location = new System.Drawing.Point(154, 470);
+            this.chb_ShowPassword.Name = "chb_ShowPassword";
+            this.chb_ShowPassword.Size = new System.Drawing.Size(170, 27);
+            this.chb_ShowPassword.TabIndex = 8;
+            this.chb_ShowPassword.Text = "Show Password";
+            this.chb_ShowPassword.UseVisualStyleBackColor = true;
+            this.chb_ShowPassword.CheckedChanged += new System.EventHandler(this.chb_ShowPassword_CheckedChanged);
+            // 
             // form_Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(18F, 40F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(982, 603);
+            this.ClientSize = new System.Drawing.Size(982, 727);
+            this.Controls.Add(this.chb_ShowPassword);
+            this.Controls.Add(this.lbl_Register);
+            this.Controls.Add(this.lbl_ForgotPassword);
             this.Controls.Add(this.btn_Login);
             this.Controls.Add(this.lbl_Password);
             this.Controls.Add(this.lbl_Username);
@@ -127,10 +171,13 @@
 
         private System.Windows.Forms.Label lbl_Login;
         private System.Windows.Forms.TextBox txtBox_Username;
-        private System.Windows.Forms.TextBox txtBox_Password;
         private System.Windows.Forms.Label lbl_Username;
         private System.Windows.Forms.Label lbl_Password;
         private System.Windows.Forms.Button btn_Login;
+        private System.Windows.Forms.TextBox txtBox_Password;
+        private System.Windows.Forms.Label lbl_ForgotPassword;
+        private System.Windows.Forms.Label lbl_Register;
+        private System.Windows.Forms.CheckBox chb_ShowPassword;
     }
 }
 
