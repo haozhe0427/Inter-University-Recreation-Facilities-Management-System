@@ -30,6 +30,10 @@
         {
             this.lbl_WelcomeMessage = new System.Windows.Forms.Label();
             this.btn_Logout = new System.Windows.Forms.Button();
+            this.btn_ManageAccount = new System.Windows.Forms.Button();
+            this.btn_ManageBooking = new System.Windows.Forms.Button();
+            this.btn_ManagePayment = new System.Windows.Forms.Button();
+            this.btn_ViewRating = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbl_WelcomeMessage
@@ -54,14 +58,66 @@
             this.btn_Logout.UseVisualStyleBackColor = true;
             this.btn_Logout.Click += new System.EventHandler(this.btn_Logout_Click);
             // 
+            // btn_ManageAccount
+            // 
+            this.btn_ManageAccount.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_ManageAccount.Font = new System.Drawing.Font("Bahnschrift SemiBold", 19.8F, System.Drawing.FontStyle.Bold);
+            this.btn_ManageAccount.Location = new System.Drawing.Point(255, 250);
+            this.btn_ManageAccount.Name = "btn_ManageAccount";
+            this.btn_ManageAccount.Size = new System.Drawing.Size(490, 110);
+            this.btn_ManageAccount.TabIndex = 3;
+            this.btn_ManageAccount.Text = "Manage Account";
+            this.btn_ManageAccount.UseVisualStyleBackColor = true;
+            this.btn_ManageAccount.Click += new System.EventHandler(this.btn_ManageAccount_Click);
+            // 
+            // btn_ManageBooking
+            // 
+            this.btn_ManageBooking.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_ManageBooking.Font = new System.Drawing.Font("Bahnschrift SemiBold", 19.8F, System.Drawing.FontStyle.Bold);
+            this.btn_ManageBooking.Location = new System.Drawing.Point(255, 400);
+            this.btn_ManageBooking.Name = "btn_ManageBooking";
+            this.btn_ManageBooking.Size = new System.Drawing.Size(490, 110);
+            this.btn_ManageBooking.TabIndex = 4;
+            this.btn_ManageBooking.Text = "Manage Booking";
+            this.btn_ManageBooking.UseVisualStyleBackColor = true;
+            this.btn_ManageBooking.Click += new System.EventHandler(this.btn_ManageBooking_Click);
+            // 
+            // btn_ManagePayment
+            // 
+            this.btn_ManagePayment.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_ManagePayment.Font = new System.Drawing.Font("Bahnschrift SemiBold", 19.8F, System.Drawing.FontStyle.Bold);
+            this.btn_ManagePayment.Location = new System.Drawing.Point(255, 550);
+            this.btn_ManagePayment.Name = "btn_ManagePayment";
+            this.btn_ManagePayment.Size = new System.Drawing.Size(490, 110);
+            this.btn_ManagePayment.TabIndex = 5;
+            this.btn_ManagePayment.Text = "Manage Payment";
+            this.btn_ManagePayment.UseVisualStyleBackColor = true;
+            this.btn_ManagePayment.Click += new System.EventHandler(this.btn_ManagePayment_Click);
+            // 
+            // btn_ViewRating
+            // 
+            this.btn_ViewRating.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_ViewRating.Font = new System.Drawing.Font("Bahnschrift SemiBold", 19.8F, System.Drawing.FontStyle.Bold);
+            this.btn_ViewRating.Location = new System.Drawing.Point(255, 700);
+            this.btn_ViewRating.Name = "btn_ViewRating";
+            this.btn_ViewRating.Size = new System.Drawing.Size(490, 110);
+            this.btn_ViewRating.TabIndex = 6;
+            this.btn_ViewRating.Text = "View Rating";
+            this.btn_ViewRating.UseVisualStyleBackColor = true;
+            this.btn_ViewRating.Click += new System.EventHandler(this.btn_ViewRating_Click);
+            // 
             // receptionist_Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btn_ViewRating);
+            this.Controls.Add(this.btn_ManagePayment);
+            this.Controls.Add(this.btn_ManageBooking);
+            this.Controls.Add(this.btn_ManageAccount);
             this.Controls.Add(this.btn_Logout);
             this.Controls.Add(this.lbl_WelcomeMessage);
             this.Name = "receptionist_Dashboard";
-            this.Size = new System.Drawing.Size(1000, 774);
+            this.Size = new System.Drawing.Size(1000, 850);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -71,5 +127,9 @@
 
         private System.Windows.Forms.Label lbl_WelcomeMessage;
         private System.Windows.Forms.Button btn_Logout;
+        private System.Windows.Forms.Button btn_ManageAccount;
+        private System.Windows.Forms.Button btn_ManageBooking;
+        private System.Windows.Forms.Button btn_ManagePayment;
+        private System.Windows.Forms.Button btn_ViewRating;
     }
 }

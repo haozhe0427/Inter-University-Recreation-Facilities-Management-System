@@ -47,6 +47,15 @@ namespace Inter_University_Recreation_Facilities_Management_System
         public event EventHandler<User> LoginSuccessful;
         private void btn_Login_Click(object sender, EventArgs e)
         {
+            string username = txtBox_Username.Text;
+            string password = txtBox_Password.Text;
+
+            if (username == "" || password == "")
+            {
+                MessageBox.Show("Please enter both username and password.");
+                return;
+            }
+
             string connStr = ConfigurationManager.ConnectionStrings["DBConnection"].ConnectionString;
             using (SqlConnection connection = new SqlConnection(connStr))
             {
@@ -56,8 +65,8 @@ namespace Inter_University_Recreation_Facilities_Management_System
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@UserName", txtBox_Username.Text);
-                    command.Parameters.AddWithValue("@Password", txtBox_Password.Text);
+                    command.Parameters.AddWithValue("@UserName", username);
+                    command.Parameters.AddWithValue("@Password", password);
 
                     connection.Open();
 

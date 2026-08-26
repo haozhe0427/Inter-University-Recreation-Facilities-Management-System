@@ -40,6 +40,11 @@ namespace Inter_University_Recreation_Facilities_Management_System
         private void Aligned() 
         {
             lbl_WelcomeMessage.Left = (this.ClientSize.Width - lbl_WelcomeMessage.Width) / 2;
+
+            btn_ManageAccount.Left  = (this.ClientSize.Width - btn_ManageAccount.Width) / 2;
+            btn_ManageFacility.Left = (this.ClientSize.Width - btn_ManageFacility.Width) / 2;
+            btn_AssignSchedule.Left = (this.ClientSize.Width - btn_AssignSchedule.Width) / 2;
+            btn_Request.Left        = (this.ClientSize.Width - btn_Request.Width) / 2;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -51,6 +56,38 @@ namespace Inter_University_Recreation_Facilities_Management_System
         private void btn_Logout_Click(object sender, EventArgs e)
         {
             LogoutRequested?.Invoke(this, EventArgs.Empty);
+        }
+
+        public event EventHandler ManageAccountRequested;
+        private void btn_ManageAccount_Click(object sender, EventArgs e)
+        {
+            Aligned();
+
+            ManageAccountRequested?.Invoke(this, EventArgs.Empty);
+        }
+
+        public event EventHandler ManageFacilityRequested;
+        private void btn_ManageFacility_Click(object sender, EventArgs e)
+        {
+            Aligned();
+
+            ManageFacilityRequested?.Invoke(this, EventArgs.Empty);
+        }
+
+        public event EventHandler AssignSchedule;
+        private void btn_AssignSchedule_Click(object sender, EventArgs e)
+        {
+            Aligned();
+
+            AssignSchedule?.Invoke(this, EventArgs.Empty);
+        }
+
+        public event EventHandler EquipmentRequest;
+        private void btn_Request_Click(object sender, EventArgs e)
+        {
+            Aligned();
+
+            EquipmentRequest?.Invoke(this, EventArgs.Empty);
         }
     }
 }
