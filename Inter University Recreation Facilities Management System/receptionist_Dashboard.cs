@@ -44,42 +44,42 @@ namespace Inter_University_Recreation_Facilities_Management_System
             btn_ViewRating.Left    = (this.ClientSize.Width - btn_ViewRating.Width) / 2;
         }
 
-        public event EventHandler LogoutRequested;
+        public event EventHandler To_Login;
         private void btn_Logout_Click(object sender, EventArgs e)
         {
-            LogoutRequested?.Invoke(this, EventArgs.Empty);
+            To_Login?.Invoke(this, EventArgs.Empty);
         }
 
-        public event EventHandler ManageAccountRequested;
+        public event EventHandler To_ManageAccount;
         private void btn_ManageAccount_Click(object sender, EventArgs e)
         {
             Aligned();
 
-            ManageAccountRequested?.Invoke(this, EventArgs.Empty);
+            To_ManageAccount?.Invoke(this, EventArgs.Empty);
         }
 
-        public event EventHandler ManageBookingRequested;
+        public event EventHandler To_ManageBooking;
         private void btn_ManageBooking_Click(object sender, EventArgs e)
         {
             Aligned();
 
-            ManageBookingRequested?.Invoke(this, EventArgs.Empty);
+            To_ManageBooking?.Invoke(this, EventArgs.Empty);
         }
 
-        public event EventHandler ManagePaymentRequested;
+        public event EventHandler To_ManagePayment;
         private void btn_ManagePayment_Click(object sender, EventArgs e)
         {
             Aligned();
 
-            ManagePaymentRequested?.Invoke(this, EventArgs.Empty);
+            To_ManagePayment?.Invoke(this, EventArgs.Empty);
         }
 
-        public event EventHandler ViewRatingRequested;
+        public event EventHandler To_ViewRating;
         private void btn_ViewRating_Click(object sender, EventArgs e)
         {
             Aligned();
 
-            ViewRatingRequested?.Invoke(this, EventArgs.Empty);
+            To_ViewRating?.Invoke(this, EventArgs.Empty);
         }
     }
 }

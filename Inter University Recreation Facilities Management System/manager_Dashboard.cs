@@ -52,42 +52,42 @@ namespace Inter_University_Recreation_Facilities_Management_System
             
         }
 
-        public event EventHandler LogoutRequested;
+        public event EventHandler To_Login;
         private void btn_Logout_Click(object sender, EventArgs e)
         {
-            LogoutRequested?.Invoke(this, EventArgs.Empty);
+            To_Login?.Invoke(this, EventArgs.Empty);
         }
 
-        public event EventHandler ManageAccountRequested;
+        public event EventHandler To_ManageAccount;
         private void btn_ManageAccount_Click(object sender, EventArgs e)
         {
             Aligned();
 
-            ManageAccountRequested?.Invoke(this, EventArgs.Empty);
+            To_ManageAccount?.Invoke(this, EventArgs.Empty);
         }
 
-        public event EventHandler ManageFacilityRequested;
+        public event EventHandler To_ManageFacility;
         private void btn_ManageFacility_Click(object sender, EventArgs e)
         {
             Aligned();
 
-            ManageFacilityRequested?.Invoke(this, EventArgs.Empty);
+            To_ManageFacility?.Invoke(this, EventArgs.Empty);
         }
 
-        public event EventHandler AssignSchedule;
+        public event EventHandler To_AssignSchedule;
         private void btn_AssignSchedule_Click(object sender, EventArgs e)
         {
             Aligned();
 
-            AssignSchedule?.Invoke(this, EventArgs.Empty);
+            To_AssignSchedule?.Invoke(this, EventArgs.Empty);
         }
 
-        public event EventHandler EquipmentRequest;
+        public event EventHandler To_EquipmentRequest;
         private void btn_Request_Click(object sender, EventArgs e)
         {
             Aligned();
 
-            EquipmentRequest?.Invoke(this, EventArgs.Empty);
+            To_EquipmentRequest?.Invoke(this, EventArgs.Empty);
         }
     }
 }

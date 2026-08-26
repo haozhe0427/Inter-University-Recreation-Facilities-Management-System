@@ -52,7 +52,7 @@
             this.btn_Logout.TabIndex = 3;
             this.btn_Logout.Text = "Back";
             this.btn_Logout.UseVisualStyleBackColor = true;
-            this.btn_Logout.Click += new System.EventHandler(this.btn_Logout_Click);
+            this.btn_Logout.Click += new System.EventHandler(this.btn_Back_Click);
             // 
             // manager_EquipmentRequest
             // 

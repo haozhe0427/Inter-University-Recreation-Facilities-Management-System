@@ -43,42 +43,42 @@ namespace Inter_University_Recreation_Facilities_Management_System
             btn_ManageProfile.Left  = (this.ClientSize.Width - btn_ManageProfile.Width) / 2;
         }
 
-        public event EventHandler LogoutRequested;
+        public event EventHandler To_Login;
         private void btn_Logout_Click(object sender, EventArgs e)
         {
-            LogoutRequested?.Invoke(this, EventArgs.Empty);
+            To_Login?.Invoke(this, EventArgs.Empty);
         }
 
-        public event EventHandler ViewScheduleRequested;
+        public event EventHandler To_ViewSchedule;
         private void btn_ViewSchedule_Click(object sender, EventArgs e)
         {
             Aligned();
 
-            ViewScheduleRequested?.Invoke(this, EventArgs.Empty);
+            To_ViewSchedule?.Invoke(this, EventArgs.Empty);
         }
 
-        public event EventHandler ManageRequestRequested;
+        public event EventHandler To_ManageRequest;
         private void btn_UpdateStatus_Click(object sender, EventArgs e)
         {
             Aligned();
 
-            ManageRequestRequested?.Invoke(this, EventArgs.Empty);
+            To_ManageRequest?.Invoke(this, EventArgs.Empty);
         }
 
-        public event EventHandler ManageProfileRequested;
+        public event EventHandler To_ManageProfile;
         private void btn_ManageRequest_Click(object sender, EventArgs e)
         {
             Aligned();
 
-            ManageProfileRequested?.Invoke(this, EventArgs.Empty);
+            To_ManageProfile?.Invoke(this, EventArgs.Empty);
         }
 
-        public event EventHandler UpdateStatusRequested;
+        public event EventHandler To_UpdateStatus;
         private void btn_ManageProfile_Click(object sender, EventArgs e)
         {
             Aligned();
 
-            UpdateStatusRequested?.Invoke(this, EventArgs.Empty);
+            To_UpdateStatus?.Invoke(this, EventArgs.Empty);
         }
     }
 }

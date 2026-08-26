@@ -52,7 +52,7 @@
             this.btn_Back.TabIndex = 3;
             this.btn_Back.Text = "Back";
             this.btn_Back.UseVisualStyleBackColor = true;
-            this.btn_Back.Click += new System.EventHandler(this.btn_Logout_Click);
+            this.btn_Back.Click += new System.EventHandler(this.btn_Back_Click);
             // 
             // receptionist_ManageAccount
             // 

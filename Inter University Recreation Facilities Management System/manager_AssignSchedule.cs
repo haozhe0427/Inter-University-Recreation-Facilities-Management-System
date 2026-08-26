@@ -23,10 +23,10 @@ namespace Inter_University_Recreation_Facilities_Management_System
             lbl_AssignSchedule.Left = (this.ClientSize.Width - lbl_AssignSchedule.Width) / 2;
         }
 
-        public event EventHandler BackRequested;
-        private void btn_Logout_Click(object sender, EventArgs e)
+        public event EventHandler To_Dashboard;
+        private void btn_Back_Click(object sender, EventArgs e)
         {
-            BackRequested?.Invoke(this, EventArgs.Empty);
+            To_Dashboard?.Invoke(this, EventArgs.Empty);
         }
     }
 }

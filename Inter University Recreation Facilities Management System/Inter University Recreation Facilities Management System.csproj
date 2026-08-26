@@ -161,7 +161,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="class_Session.cs" />
+    <Compile Include="forgotPassword.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="forgotPassword.Designer.cs">
+      <DependentUpon>forgotPassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_Shell.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -267,6 +272,12 @@
     <Compile Include="receptionist_ViewRating.Designer.cs">
       <DependentUpon>receptionist_ViewRating.cs</DependentUpon>
     </Compile>
+    <Compile Include="registerAccount.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="registerAccount.Designer.cs">
+      <DependentUpon>registerAccount.cs</DependentUpon>
+    </Compile>
     <Compile Include="student_Dashboard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -297,6 +308,9 @@
     <Compile Include="student_SendReview.Designer.cs">
       <DependentUpon>student_SendReview.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="forgotPassword.resx">
+      <DependentUpon>forgotPassword.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_Shell.resx">
       <DependentUpon>Form_Shell.cs</DependentUpon>
     </EmbeddedResource>
@@ -356,6 +370,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="receptionist_ViewRating.resx">
       <DependentUpon>receptionist_ViewRating.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="registerAccount.resx">
+      <DependentUpon>registerAccount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="student_Dashboard.resx">
       <DependentUpon>student_Dashboard.cs</DependentUpon>

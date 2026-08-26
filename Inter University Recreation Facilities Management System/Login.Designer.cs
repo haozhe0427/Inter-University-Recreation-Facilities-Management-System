@@ -60,6 +60,7 @@
             this.lbl_Register.Size = new System.Drawing.Size(241, 23);
             this.lbl_Register.TabIndex = 16;
             this.lbl_Register.Text = "No Account ? Register Here";
+            this.lbl_Register.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lbl_Register_MouseClick);
             // 
             // lbl_ForgotPassword
             // 
@@ -71,6 +72,7 @@
             this.lbl_ForgotPassword.Size = new System.Drawing.Size(163, 23);
             this.lbl_ForgotPassword.TabIndex = 15;
             this.lbl_ForgotPassword.Text = "Forgot Password?";
+            this.lbl_ForgotPassword.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lbl_ForgotPassword_MouseClick);
             // 
             // btn_Login
             // 
@@ -136,7 +138,7 @@
             this.lbl_Login.TabIndex = 9;
             this.lbl_Login.Text = "Login";
             // 
-            // uc_Login
+            // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -149,7 +151,7 @@
             this.Controls.Add(this.txtBox_Password);
             this.Controls.Add(this.txtBox_Username);
             this.Controls.Add(this.lbl_Login);
-            this.Name = "uc_Login";
+            this.Name = "Login";
             this.Size = new System.Drawing.Size(1000, 774);
             this.ResumeLayout(false);
             this.PerformLayout();

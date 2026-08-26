@@ -14,8 +14,7 @@ namespace Inter_University_Recreation_Facilities_Management_System
         private string userName;
         private string contactNumber;
 
-        public User(string email, string password, 
-                    string accountRole, string userName, string contactNumber)
+        public User(string email, string password, string accountRole, string userName, string contactNumber)
         {
             this.email         = email;
             this.password      = password;

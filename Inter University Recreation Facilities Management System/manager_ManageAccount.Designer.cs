@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.lbl_ManageAccount = new System.Windows.Forms.Label();
-            this.btn_Logout = new System.Windows.Forms.Button();
+            this.btn_Back = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbl_ManageAccount
@@ -42,23 +42,23 @@
             this.lbl_ManageAccount.TabIndex = 1;
             this.lbl_ManageAccount.Text = "Manage Account";
             // 
-            // btn_Logout
+            // btn_Back
             // 
-            this.btn_Logout.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Logout.Font = new System.Drawing.Font("Bahnschrift SemiBold", 19.8F, System.Drawing.FontStyle.Bold);
-            this.btn_Logout.Location = new System.Drawing.Point(15, 15);
-            this.btn_Logout.Name = "btn_Logout";
-            this.btn_Logout.Size = new System.Drawing.Size(170, 55);
-            this.btn_Logout.TabIndex = 2;
-            this.btn_Logout.Text = "Back";
-            this.btn_Logout.UseVisualStyleBackColor = true;
-            this.btn_Logout.Click += new System.EventHandler(this.btn_Logout_Click);
+            this.btn_Back.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Back.Font = new System.Drawing.Font("Bahnschrift SemiBold", 19.8F, System.Drawing.FontStyle.Bold);
+            this.btn_Back.Location = new System.Drawing.Point(15, 15);
+            this.btn_Back.Name = "btn_Back";
+            this.btn_Back.Size = new System.Drawing.Size(170, 55);
+            this.btn_Back.TabIndex = 2;
+            this.btn_Back.Text = "Back";
+            this.btn_Back.UseVisualStyleBackColor = true;
+            this.btn_Back.Click += new System.EventHandler(this.btn_Back_Click);
             // 
             // manager_ManageAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btn_Logout);
+            this.Controls.Add(this.btn_Back);
             this.Controls.Add(this.lbl_ManageAccount);
             this.Name = "manager_ManageAccount";
             this.Size = new System.Drawing.Size(1000, 850);
@@ -70,6 +70,6 @@
         #endregion
 
         private System.Windows.Forms.Label lbl_ManageAccount;
-        private System.Windows.Forms.Button btn_Logout;
+        private System.Windows.Forms.Button btn_Back;
     }
 }

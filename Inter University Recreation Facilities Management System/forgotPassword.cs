@@ -10,23 +10,22 @@ using System.Windows.Forms;
 
 namespace Inter_University_Recreation_Facilities_Management_System
 {
-    public partial class student_SearchFacility : UserControl
+    public partial class forgotPassword : UserControl
     {
-        public student_SearchFacility(User user)
+        public forgotPassword()
         {
             InitializeComponent();
-            this.Resize += (s, e) => Aligned();
+            this.Resize += (s,e) => Aligned();
         }
-
         private void Aligned() 
         {
-            lbl_SearchFacility.Left = (this.Width - lbl_SearchFacility.Width) / 2;
+            lbl_ResetPassword.Left = (this.ClientSize.Width - lbl_ResetPassword.Width) / 2;
         }
 
-        public event EventHandler To_Dashboard;
+        public event EventHandler To_Login;
         private void btn_Back_Click(object sender, EventArgs e)
         {
-            To_Dashboard?.Invoke(this, EventArgs.Empty);
+            To_Login?.Invoke(this, EventArgs.Empty);
         }
     }
 }

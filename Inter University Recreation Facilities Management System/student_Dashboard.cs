@@ -44,42 +44,42 @@ namespace Inter_University_Recreation_Facilities_Management_System
             btn_ManageProfile.Left  = (this.ClientSize.Width - btn_ManageProfile.Width) / 2;
         }
 
-        public event EventHandler LogoutRequested;
+        public event EventHandler To_Login;
         private void btn_Logout_Click(object sender, EventArgs e)
         {
-            LogoutRequested?.Invoke(this, EventArgs.Empty);
+            To_Login?.Invoke(this, EventArgs.Empty);
         }
 
-        public event EventHandler SearchFacilityRequested;
+        public event EventHandler To_SearchFacility;
         private void btn_SearchFacility_Click(object sender, EventArgs e)
         {
             Aligned();
 
-            SearchFacilityRequested?.Invoke(this, EventArgs.Empty);
+            To_SearchFacility?.Invoke(this, EventArgs.Empty);
         }
 
-        public event EventHandler PaymentRequested;
+        public event EventHandler To_Payment;
         private void btn_Payment_Click(object sender, EventArgs e)
         {
             Aligned();
 
-            PaymentRequested?.Invoke(this, EventArgs.Empty);
+            To_Payment?.Invoke(this, EventArgs.Empty);
         }
 
-        public event EventHandler SendReviewRequested;
+        public event EventHandler To_SendReview;
         private void btn_SendReview_Click(object sender, EventArgs e)
         {
             Aligned();
 
-            SendReviewRequested?.Invoke(this, EventArgs.Empty);
+            To_SendReview?.Invoke(this, EventArgs.Empty);
         }
 
-        public event EventHandler ManageProfileRequested;
+        public event EventHandler To_ManageProfile;
         private void btn_ManageProfile_Click(object sender, EventArgs e)
         {
             Aligned();
 
-            ManageProfileRequested?.Invoke(this, EventArgs.Empty);
+            To_ManageProfile?.Invoke(this, EventArgs.Empty);
         }
     }
 }
