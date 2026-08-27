@@ -1,4 +1,4 @@
-# Inter University Recreation Facilities Management System
+# Inter University Recreation Facilities Management System (REMAKE)
 
 In view of the high cost in building and maintaining sport and recreation facilities in a university 
 campus environment, most of the universities in Malaysia provide a very limited choice of sport 
