@@ -1,6 +1,6 @@
 ﻿namespace Inter_University_Recreation_Facilities_Management_System
 {
-    partial class maintainanceStaff_Dashboard
+    partial class maintenanceStaff_Dashboard
     {
         /// <summary> 
         /// Required designer variable.

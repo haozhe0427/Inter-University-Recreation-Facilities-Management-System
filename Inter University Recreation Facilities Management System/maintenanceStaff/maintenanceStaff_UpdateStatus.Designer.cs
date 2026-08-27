@@ -1,6 +1,6 @@
 ﻿namespace Inter_University_Recreation_Facilities_Management_System
 {
-    partial class maintainanceStaff_ManageRequest
+    partial class maintenanceStaff_UpdateStatus
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,19 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lbl_ManageRequest = new System.Windows.Forms.Label();
+            this.lbl_UpdateStatus = new System.Windows.Forms.Label();
             this.btn_Back = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // lbl_ManageRequest
+            // lbl_UpdateStatus
             // 
-            this.lbl_ManageRequest.AutoSize = true;
-            this.lbl_ManageRequest.Font = new System.Drawing.Font("Leelawadee UI", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_ManageRequest.Location = new System.Drawing.Point(261, 75);
-            this.lbl_ManageRequest.Name = "lbl_ManageRequest";
-            this.lbl_ManageRequest.Size = new System.Drawing.Size(479, 81);
-            this.lbl_ManageRequest.TabIndex = 4;
-            this.lbl_ManageRequest.Text = "Manage Request";
+            this.lbl_UpdateStatus.AutoSize = true;
+            this.lbl_UpdateStatus.Font = new System.Drawing.Font("Leelawadee UI", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_UpdateStatus.Location = new System.Drawing.Point(297, 75);
+            this.lbl_UpdateStatus.Name = "lbl_UpdateStatus";
+            this.lbl_UpdateStatus.Size = new System.Drawing.Size(406, 81);
+            this.lbl_UpdateStatus.TabIndex = 4;
+            this.lbl_UpdateStatus.Text = "Update Status";
             // 
             // btn_Back
             // 
@@ -54,13 +54,13 @@
             this.btn_Back.UseVisualStyleBackColor = true;
             this.btn_Back.Click += new System.EventHandler(this.btn_Back_Click);
             // 
-            // maintainanceStaff_ManageRequest
+            // maintainanceStaff_UpdateStatus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btn_Back);
-            this.Controls.Add(this.lbl_ManageRequest);
-            this.Name = "maintainanceStaff_ManageRequest";
+            this.Controls.Add(this.lbl_UpdateStatus);
+            this.Name = "maintainanceStaff_UpdateStatus";
             this.Size = new System.Drawing.Size(1000, 850);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -69,7 +69,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lbl_ManageRequest;
+        private System.Windows.Forms.Label lbl_UpdateStatus;
         private System.Windows.Forms.Button btn_Back;
     }
 }

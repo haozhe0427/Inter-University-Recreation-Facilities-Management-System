@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Inter_University_Recreation_Facilities_Management_System
 {
-    public partial class maintainanceStaff_ManageRequest : UserControl
+    public partial class maintenanceStaff_ManageRequest : UserControl
     {
-        public maintainanceStaff_ManageRequest(User user)
+        public maintenanceStaff_ManageRequest(User user)
         {
             InitializeComponent();
             this.Resize += (s, e) => Aligned();

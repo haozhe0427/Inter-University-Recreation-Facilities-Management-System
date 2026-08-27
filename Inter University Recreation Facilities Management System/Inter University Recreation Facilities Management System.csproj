@@ -173,66 +173,66 @@
     <Compile Include="Form_Shell.Designer.cs">
       <DependentUpon>Form_Shell.cs</DependentUpon>
     </Compile>
-    <Compile Include="maintainanceStaff_Dashboard.cs">
+    <Compile Include="maintenanceStaff\maintenanceStaff_Dashboard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="maintainanceStaff_Dashboard.Designer.cs">
-      <DependentUpon>maintainanceStaff_Dashboard.cs</DependentUpon>
+    <Compile Include="maintenanceStaff\maintenanceStaff_Dashboard.Designer.cs">
+      <DependentUpon>maintenanceStaff_Dashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="maintainanceStaff_ManageProfile.cs">
+    <Compile Include="maintenanceStaff\maintenanceStaff_ManageProfile.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="maintainanceStaff_ManageProfile.Designer.cs">
-      <DependentUpon>maintainanceStaff_ManageProfile.cs</DependentUpon>
+    <Compile Include="maintenanceStaff\maintenanceStaff_ManageProfile.Designer.cs">
+      <DependentUpon>maintenanceStaff_ManageProfile.cs</DependentUpon>
     </Compile>
-    <Compile Include="maintainanceStaff_ManageRequest.cs">
+    <Compile Include="maintenanceStaff\maintenanceStaff_ManageRequest.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="maintainanceStaff_ManageRequest.Designer.cs">
-      <DependentUpon>maintainanceStaff_ManageRequest.cs</DependentUpon>
+    <Compile Include="maintenanceStaff\maintenanceStaff_ManageRequest.Designer.cs">
+      <DependentUpon>maintenanceStaff_ManageRequest.cs</DependentUpon>
     </Compile>
-    <Compile Include="maintainanceStaff_UpdateStatus.cs">
+    <Compile Include="maintenanceStaff\maintenanceStaff_UpdateStatus.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="maintainanceStaff_UpdateStatus.Designer.cs">
-      <DependentUpon>maintainanceStaff_UpdateStatus.cs</DependentUpon>
+    <Compile Include="maintenanceStaff\maintenanceStaff_UpdateStatus.Designer.cs">
+      <DependentUpon>maintenanceStaff_UpdateStatus.cs</DependentUpon>
     </Compile>
-    <Compile Include="maintainanceStaff_ViewSchedule.cs">
+    <Compile Include="maintenanceStaff\maintenanceStaff_ViewSchedule.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="maintainanceStaff_ViewSchedule.Designer.cs">
-      <DependentUpon>maintainanceStaff_ViewSchedule.cs</DependentUpon>
+    <Compile Include="maintenanceStaff\maintenanceStaff_ViewSchedule.Designer.cs">
+      <DependentUpon>maintenanceStaff_ViewSchedule.cs</DependentUpon>
     </Compile>
-    <Compile Include="manager_AssignSchedule.cs">
+    <Compile Include="manager\manager_AssignSchedule.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="manager_AssignSchedule.Designer.cs">
+    <Compile Include="manager\manager_AssignSchedule.Designer.cs">
       <DependentUpon>manager_AssignSchedule.cs</DependentUpon>
     </Compile>
-    <Compile Include="manager_EquipmentRequest.cs">
+    <Compile Include="manager\manager_EquipmentRequest.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="manager_EquipmentRequest.Designer.cs">
+    <Compile Include="manager\manager_EquipmentRequest.Designer.cs">
       <DependentUpon>manager_EquipmentRequest.cs</DependentUpon>
     </Compile>
-    <Compile Include="manager_ManageAccount.cs">
+    <Compile Include="manager\manager_ManageAccount.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="manager_ManageAccount.Designer.cs">
+    <Compile Include="manager\manager_ManageAccount.Designer.cs">
       <DependentUpon>manager_ManageAccount.cs</DependentUpon>
     </Compile>
-    <Compile Include="manager_ManageFacility.cs">
+    <Compile Include="manager\manager_ManageFacility.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="manager_ManageFacility.Designer.cs">
+    <Compile Include="manager\manager_ManageFacility.Designer.cs">
       <DependentUpon>manager_ManageFacility.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="manager_Dashboard.cs">
+    <Compile Include="manager\manager_Dashboard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="manager_Dashboard.Designer.cs">
+    <Compile Include="manager\manager_Dashboard.Designer.cs">
       <DependentUpon>manager_Dashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
@@ -242,34 +242,34 @@
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="class_User.cs" />
-    <Compile Include="receptionist_ManagePayment.cs">
+    <Compile Include="receptionist\receptionist_ManagePayment.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="receptionist_ManagePayment.Designer.cs">
+    <Compile Include="receptionist\receptionist_ManagePayment.Designer.cs">
       <DependentUpon>receptionist_ManagePayment.cs</DependentUpon>
     </Compile>
-    <Compile Include="receptionist_Dashboard.cs">
+    <Compile Include="receptionist\receptionist_Dashboard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="receptionist_Dashboard.Designer.cs">
+    <Compile Include="receptionist\receptionist_Dashboard.Designer.cs">
       <DependentUpon>receptionist_Dashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="receptionist_ManageAccount.cs">
+    <Compile Include="receptionist\receptionist_ManageAccount.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="receptionist_ManageAccount.Designer.cs">
+    <Compile Include="receptionist\receptionist_ManageAccount.Designer.cs">
       <DependentUpon>receptionist_ManageAccount.cs</DependentUpon>
     </Compile>
-    <Compile Include="receptionist_ManageBooking.cs">
+    <Compile Include="receptionist\receptionist_ManageBooking.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="receptionist_ManageBooking.Designer.cs">
+    <Compile Include="receptionist\receptionist_ManageBooking.Designer.cs">
       <DependentUpon>receptionist_ManageBooking.cs</DependentUpon>
     </Compile>
-    <Compile Include="receptionist_ViewRating.cs">
+    <Compile Include="receptionist\receptionist_ViewRating.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="receptionist_ViewRating.Designer.cs">
+    <Compile Include="receptionist\receptionist_ViewRating.Designer.cs">
       <DependentUpon>receptionist_ViewRating.cs</DependentUpon>
     </Compile>
     <Compile Include="registerAccount.cs">
@@ -278,34 +278,34 @@
     <Compile Include="registerAccount.Designer.cs">
       <DependentUpon>registerAccount.cs</DependentUpon>
     </Compile>
-    <Compile Include="student_Dashboard.cs">
+    <Compile Include="student\student_Dashboard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="student_Dashboard.Designer.cs">
+    <Compile Include="student\student_Dashboard.Designer.cs">
       <DependentUpon>student_Dashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="student_ManageProfile.cs">
+    <Compile Include="student\student_ManageProfile.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="student_ManageProfile.Designer.cs">
+    <Compile Include="student\student_ManageProfile.Designer.cs">
       <DependentUpon>student_ManageProfile.cs</DependentUpon>
     </Compile>
-    <Compile Include="student_Payment.cs">
+    <Compile Include="student\student_Payment.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="student_Payment.Designer.cs">
+    <Compile Include="student\student_Payment.Designer.cs">
       <DependentUpon>student_Payment.cs</DependentUpon>
     </Compile>
-    <Compile Include="student_SearchFacility.cs">
+    <Compile Include="student\student_SearchFacility.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="student_SearchFacility.Designer.cs">
+    <Compile Include="student\student_SearchFacility.Designer.cs">
       <DependentUpon>student_SearchFacility.cs</DependentUpon>
     </Compile>
-    <Compile Include="student_SendReview.cs">
+    <Compile Include="student\student_SendReview.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="student_SendReview.Designer.cs">
+    <Compile Include="student\student_SendReview.Designer.cs">
       <DependentUpon>student_SendReview.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="forgotPassword.resx">
@@ -314,31 +314,31 @@
     <EmbeddedResource Include="Form_Shell.resx">
       <DependentUpon>Form_Shell.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="maintainanceStaff_Dashboard.resx">
-      <DependentUpon>maintainanceStaff_Dashboard.cs</DependentUpon>
+    <EmbeddedResource Include="maintenanceStaff\maintenanceStaff_Dashboard.resx">
+      <DependentUpon>maintenanceStaff_Dashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="maintainanceStaff_ManageProfile.resx">
-      <DependentUpon>maintainanceStaff_ManageProfile.cs</DependentUpon>
+    <EmbeddedResource Include="maintenanceStaff\maintenanceStaff_ManageProfile.resx">
+      <DependentUpon>maintenanceStaff_ManageProfile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="maintainanceStaff_ManageRequest.resx">
-      <DependentUpon>maintainanceStaff_ManageRequest.cs</DependentUpon>
+    <EmbeddedResource Include="maintenanceStaff\maintenanceStaff_ManageRequest.resx">
+      <DependentUpon>maintenanceStaff_ManageRequest.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="maintainanceStaff_UpdateStatus.resx">
-      <DependentUpon>maintainanceStaff_UpdateStatus.cs</DependentUpon>
+    <EmbeddedResource Include="maintenanceStaff\maintenanceStaff_UpdateStatus.resx">
+      <DependentUpon>maintenanceStaff_UpdateStatus.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="maintainanceStaff_ViewSchedule.resx">
-      <DependentUpon>maintainanceStaff_ViewSchedule.cs</DependentUpon>
+    <EmbeddedResource Include="maintenanceStaff\maintenanceStaff_ViewSchedule.resx">
+      <DependentUpon>maintenanceStaff_ViewSchedule.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="manager_AssignSchedule.resx">
+    <EmbeddedResource Include="manager\manager_AssignSchedule.resx">
       <DependentUpon>manager_AssignSchedule.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="manager_EquipmentRequest.resx">
+    <EmbeddedResource Include="manager\manager_EquipmentRequest.resx">
       <DependentUpon>manager_EquipmentRequest.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="manager_ManageAccount.resx">
+    <EmbeddedResource Include="manager\manager_ManageAccount.resx">
       <DependentUpon>manager_ManageAccount.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="manager_ManageFacility.resx">
+    <EmbeddedResource Include="manager\manager_ManageFacility.resx">
       <DependentUpon>manager_ManageFacility.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -350,43 +350,43 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="manager_Dashboard.resx">
+    <EmbeddedResource Include="manager\manager_Dashboard.resx">
       <DependentUpon>manager_Dashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="receptionist_Dashboard.resx">
+    <EmbeddedResource Include="receptionist\receptionist_Dashboard.resx">
       <DependentUpon>receptionist_Dashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="receptionist_ManageAccount.resx">
+    <EmbeddedResource Include="receptionist\receptionist_ManageAccount.resx">
       <DependentUpon>receptionist_ManageAccount.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="receptionist_ManageBooking.resx">
+    <EmbeddedResource Include="receptionist\receptionist_ManageBooking.resx">
       <DependentUpon>receptionist_ManageBooking.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="receptionist_ManagePayment.resx">
+    <EmbeddedResource Include="receptionist\receptionist_ManagePayment.resx">
       <DependentUpon>receptionist_ManagePayment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="receptionist_ViewRating.resx">
+    <EmbeddedResource Include="receptionist\receptionist_ViewRating.resx">
       <DependentUpon>receptionist_ViewRating.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="registerAccount.resx">
       <DependentUpon>registerAccount.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="student_Dashboard.resx">
+    <EmbeddedResource Include="student\student_Dashboard.resx">
       <DependentUpon>student_Dashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="student_ManageProfile.resx">
+    <EmbeddedResource Include="student\student_ManageProfile.resx">
       <DependentUpon>student_ManageProfile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="student_Payment.resx">
+    <EmbeddedResource Include="student\student_Payment.resx">
       <DependentUpon>student_Payment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="student_SearchFacility.resx">
+    <EmbeddedResource Include="student\student_SearchFacility.resx">
       <DependentUpon>student_SearchFacility.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="student_SendReview.resx">
+    <EmbeddedResource Include="student\student_SendReview.resx">
       <DependentUpon>student_SendReview.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -403,6 +403,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Data.SqlClient.SNI.6.0.2\build\net462\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('..\packages\Microsoft.Data.SqlClient.SNI.6.0.2\build\net462\Microsoft.Data.SqlClient.SNI.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -24,9 +24,9 @@ using System.Windows.Forms;
 
 namespace Inter_University_Recreation_Facilities_Management_System
 {
-    public partial class maintainanceStaff_Dashboard : UserControl
+    public partial class maintenanceStaff_Dashboard : UserControl
     {
-        public maintainanceStaff_Dashboard(User user)
+        public maintenanceStaff_Dashboard(User user)
         {
             InitializeComponent();
             this.Resize += (s, e) => Aligned();
@@ -57,8 +57,16 @@ namespace Inter_University_Recreation_Facilities_Management_System
             To_ViewSchedule?.Invoke(this, EventArgs.Empty);
         }
 
-        public event EventHandler To_ManageRequest;
+        public event EventHandler To_UpdateStatus;
         private void btn_UpdateStatus_Click(object sender, EventArgs e)
+        {
+            Aligned();
+
+            To_UpdateStatus?.Invoke(this, EventArgs.Empty);
+        }
+
+        public event EventHandler To_ManageRequest;
+        private void btn_ManageRequest_Click(object sender, EventArgs e)
         {
             Aligned();
 
@@ -66,19 +74,11 @@ namespace Inter_University_Recreation_Facilities_Management_System
         }
 
         public event EventHandler To_ManageProfile;
-        private void btn_ManageRequest_Click(object sender, EventArgs e)
-        {
-            Aligned();
-
-            To_ManageProfile?.Invoke(this, EventArgs.Empty);
-        }
-
-        public event EventHandler To_UpdateStatus;
         private void btn_ManageProfile_Click(object sender, EventArgs e)
         {
             Aligned();
 
-            To_UpdateStatus?.Invoke(this, EventArgs.Empty);
+            To_ManageProfile?.Invoke(this, EventArgs.Empty);
         }
     }
 }

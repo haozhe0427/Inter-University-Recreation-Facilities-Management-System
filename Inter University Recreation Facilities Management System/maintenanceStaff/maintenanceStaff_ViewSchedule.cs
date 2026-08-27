@@ -10,17 +10,17 @@ using System.Windows.Forms;
 
 namespace Inter_University_Recreation_Facilities_Management_System
 {
-    public partial class maintainanceStaff_ManageProfile : UserControl
+    public partial class maintenanceStaff_ViewSchedule : UserControl
     {
-        public maintainanceStaff_ManageProfile(User user)
+        public maintenanceStaff_ViewSchedule(User user)
         {
             InitializeComponent();
-            this.Resize += (s,e) => Aligned();
+            this.Resize += (s, e) => Aligned();
         }
 
         private void Aligned()
         {
-            lbl_ManageProfile.Left = (this.Width - lbl_ManageProfile.Width) / 2;
+            lbl_ViewSchedule.Left = (this.Width - lbl_ViewSchedule.Width) / 2;
         }
 
         public event EventHandler To_Dashboard;

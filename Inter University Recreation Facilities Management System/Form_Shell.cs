@@ -119,12 +119,13 @@ namespace Inter_University_Recreation_Facilities_Management_System
 
                     break;
 
-                case "Maintainance Staff":
-                    maintainanceStaff_Dashboard     maintainanceDashboard = new maintainanceStaff_Dashboard    (user);
-                    maintainanceStaff_ViewSchedule  viewSchedule          = new maintainanceStaff_ViewSchedule (user);
-                    maintainanceStaff_UpdateStatus  updateStatus          = new maintainanceStaff_UpdateStatus (user);
-                    maintainanceStaff_ManageRequest manageRequest         = new maintainanceStaff_ManageRequest(user);
-                    maintainanceStaff_ManageProfile manageProfile_m       = new maintainanceStaff_ManageProfile(user);
+
+                case "Maintenance Staff":
+                    maintenanceStaff_Dashboard     maintainanceDashboard = new maintenanceStaff_Dashboard    (user);
+                    maintenanceStaff_ViewSchedule  viewSchedule          = new maintenanceStaff_ViewSchedule (user);
+                    maintenanceStaff_UpdateStatus  updateStatus          = new maintenanceStaff_UpdateStatus (user);
+                    maintenanceStaff_ManageRequest manageRequest         = new maintenanceStaff_ManageRequest(user);
+                    maintenanceStaff_ManageProfile manageProfile_m       = new maintenanceStaff_ManageProfile(user);
 
                     LoadScreen(maintainanceDashboard);
 
@@ -143,6 +144,7 @@ namespace Inter_University_Recreation_Facilities_Management_System
                     manageProfile_m.      To_Dashboard     += (s, e) => LoadScreen(maintainanceDashboard);
 
                     break;
+
 
                 default:
                     MessageBox.Show("Unknown role: " + user.AccountRole);
