@@ -84,7 +84,7 @@ namespace Inter_University_Recreation_Facilities_Management_System
 
                             LoginSuccessful?.Invoke(this, loggedInUser);
                         }
-                        else { MessageBox.Show("Invalid username or password."); }
+                        else MessageBox.Show("Invalid username or password."); 
                     }
                 }
             }
@@ -100,6 +100,13 @@ namespace Inter_University_Recreation_Facilities_Management_System
         private void lbl_Register_MouseClick(object sender, MouseEventArgs e)
         {
             To_RegisterAccount?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void chb_ShowPassword_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chb_ShowPassword.Checked) 
+                 txtBox_Password.UseSystemPasswordChar = false;
+            else txtBox_Password.UseSystemPasswordChar = true;
         }
     }
 }

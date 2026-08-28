@@ -42,6 +42,7 @@
             // chb_ShowPassword
             // 
             this.chb_ShowPassword.AutoSize = true;
+            this.chb_ShowPassword.Cursor = System.Windows.Forms.Cursors.Hand;
             this.chb_ShowPassword.Font = new System.Drawing.Font("Bahnschrift SemiBold", 11F, System.Drawing.FontStyle.Bold);
             this.chb_ShowPassword.Location = new System.Drawing.Point(163, 516);
             this.chb_ShowPassword.Name = "chb_ShowPassword";
@@ -49,6 +50,7 @@
             this.chb_ShowPassword.TabIndex = 17;
             this.chb_ShowPassword.Text = "Show Password";
             this.chb_ShowPassword.UseVisualStyleBackColor = true;
+            this.chb_ShowPassword.CheckedChanged += new System.EventHandler(this.chb_ShowPassword_CheckedChanged);
             // 
             // lbl_Register
             // 

@@ -93,6 +93,7 @@
             this.btn_AssignSchedule.TabIndex = 4;
             this.btn_AssignSchedule.Text = "Assign Maintainance Schedule";
             this.btn_AssignSchedule.UseVisualStyleBackColor = true;
+            this.btn_AssignSchedule.Click += new System.EventHandler(this.btn_AssignSchedule_Click);
             // 
             // btn_Request
             // 
