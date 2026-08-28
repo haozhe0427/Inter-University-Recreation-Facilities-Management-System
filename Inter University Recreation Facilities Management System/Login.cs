@@ -44,7 +44,7 @@ namespace Inter_University_Recreation_Facilities_Management_System
             lbl_Register.      Left = (this.ClientSize.Width - lbl_Register.Width) / 2;
         }
 
-        public event EventHandler<User> LoginSuccessful;
+        public event EventHandler<User> CredentialsValid;
         private void btn_Login_Click(object sender, EventArgs e)
         {
             string username = txtBox_Username.Text;
@@ -82,7 +82,7 @@ namespace Inter_University_Recreation_Facilities_Management_System
                                 reader["ContactNumber"].ToString()
                                 );
 
-                            LoginSuccessful?.Invoke(this, loggedInUser);
+                            CredentialsValid?.Invoke(this, loggedInUser);
                         }
                         else MessageBox.Show("Invalid username or password."); 
                     }
@@ -92,15 +92,11 @@ namespace Inter_University_Recreation_Facilities_Management_System
 
         public event EventHandler To_ResetPassword;
         private void lbl_ForgotPassword_MouseClick(object sender, MouseEventArgs e)
-        {
-            To_ResetPassword?.Invoke(this, EventArgs.Empty);
-        }
+        { To_ResetPassword?.Invoke(this, EventArgs.Empty); }
 
         public event EventHandler To_RegisterAccount;
         private void lbl_Register_MouseClick(object sender, MouseEventArgs e)
-        {
-            To_RegisterAccount?.Invoke(this, EventArgs.Empty);
-        }
+        { To_RegisterAccount?.Invoke(this, EventArgs.Empty); }
 
         private void chb_ShowPassword_CheckedChanged(object sender, EventArgs e)
         {
