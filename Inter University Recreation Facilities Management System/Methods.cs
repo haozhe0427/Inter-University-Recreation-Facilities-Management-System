@@ -110,11 +110,64 @@ namespace Inter_University_Recreation_Facilities_Management_System
         {
             using (SqlConnection connection = new SqlConnection(connStr))
             {
+                connection.Open();
+
                 string query = "SELECT AccountID, Email, AccountRole, UserName, ContactNumber " +
                                "FROM ACCOUNT " +
                                "WHERE AccountRole IN ('Receptionist', 'Maintenance Staff')";
 
                 using (SqlDataAdapter adapter = new SqlDataAdapter(query, connection))
+                {
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+                    return dataTable;
+                }
+            }
+        }
+
+
+        public static DataTable AddAccount(string email, string username, string role, string phoneNumber) 
+        {
+            using (SqlConnection connection = new SqlConnection(connStr)) 
+            {
+                connection.Open();
+
+                string newAccountID  = "A00001";
+                string getMaxIdQuery = "SELECT TOP 1 AccountID FROM ACCOUNT " +
+                                       "ORDER BY AccountID DESC";
+
+                using (SqlCommand getMaxIdCommand = new SqlCommand(getMaxIdQuery, connection)) 
+                {
+                    object result = getMaxIdCommand.ExecuteScalar();
+                    if (result != null) 
+                    {
+                        string lastId = result.ToString();
+                        int    number = int.Parse(lastId.Substring(1));
+                        newAccountID  = "A" + (number + 1).ToString("D5");
+                    }
+                }
+                string defaultPassword = newAccountID + "@password";
+
+                string insertQuery = "INSERT INTO ACCOUNT (AccountID, Email, Password, AccountRole, UserName, ContactNumber)" +
+                                     "VALUES (@AccountID, @Email, @Password, @AccountRole, @UserName, @ContactNumber)";
+
+                using (SqlCommand insertCommand = new SqlCommand(insertQuery, connection)) 
+                {
+                    insertCommand.Parameters.AddWithValue("@AccountID",     newAccountID);
+                    insertCommand.Parameters.AddWithValue("@Email",         email);
+                    insertCommand.Parameters.AddWithValue("@Password",      defaultPassword);
+                    insertCommand.Parameters.AddWithValue("@AccountRole",   role);
+                    insertCommand.Parameters.AddWithValue("@UserName",      username);
+                    insertCommand.Parameters.AddWithValue("@ContactNumber", phoneNumber);
+
+                    insertCommand.ExecuteNonQuery();
+                }
+
+                string selectQuery = "SELECT AccountID, Email, AccountRole, UserName, ContactNumber " +
+                                     "FROM ACCOUNT " +
+                                     "WHERE AccountRole IN ('Receptionist', 'Maintenance Staff')";
+
+                using (SqlDataAdapter adapter = new SqlDataAdapter(selectQuery, connection))
                 {
                     DataTable dataTable = new DataTable();
                     adapter.Fill(dataTable);

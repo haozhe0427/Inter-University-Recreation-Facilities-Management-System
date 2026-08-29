@@ -33,7 +33,7 @@ namespace Inter_University_Recreation_Facilities_Management_System
             lbl_Username.   Left = dgv_ManageAccount;
             lbl_PhoneNumber.Left = dgv_ManageAccount;
 
-            lbl_SelectedAccountID.Left = lbl_AccountID.Left + 10;
+            lbl_SelectedAccountID.Left = lbl_AccountID.Left + 110;
             lbl_SelectedAccountID.Top  = lbl_AccountID.Top -
                                          (lbl_SelectedAccountID.Height - lbl_AccountID.Height) / 2;
 
@@ -56,6 +56,10 @@ namespace Inter_University_Recreation_Facilities_Management_System
             txtBox_PhoneNumber.Left = lbl_PhoneNumber.Right + 10;
             txtBox_PhoneNumber.Top  = lbl_PhoneNumber.Top - 
                                       (txtBox_PhoneNumber.Height - lbl_PhoneNumber.Height) / 2;
+
+            btn_Delete.Left = dgv_Account.Right - btn_Delete.Width;
+            btn_Add.   Left = btn_Delete. Left  - btn_Add.   Width - 10;
+            btn_Clear. Left = btn_Add.    Left  - btn_Clear. Width - 10;
         }
 
 
@@ -79,5 +83,59 @@ namespace Inter_University_Recreation_Facilities_Management_System
         public event EventHandler To_Dashboard;
         private void btn_Back_Click(object sender, EventArgs e)
         { To_Dashboard?.Invoke(this, EventArgs.Empty); }
+
+        private void dgv_Account_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+
+            DataGridViewRow selectedRow = dgv_Account.Rows[e.RowIndex];
+
+            lbl_SelectedAccountID.Text = selectedRow.Cells["AccountID"    ].Value.ToString();
+            txtBox_Email.         Text = selectedRow.Cells["Email"        ].Value.ToString();
+            txtBox_Username.      Text = selectedRow.Cells["UserName"     ].Value.ToString();
+            txtBox_PhoneNumber.   Text = selectedRow.Cells["ContactNumber"].Value.ToString();
+
+            string role = selectedRow.Cells["AccountRole"].Value.ToString();
+            rb_Receptionist.    Checked = (role == "Receptionist"     );
+            rb_MaintenanceStaff.Checked = (role == "Maintenance Staff");
+        }
+
+        private void btn_Clear_Click(object sender, EventArgs e)
+        {
+            lbl_SelectedAccountID.Text = string.Empty;
+            txtBox_Email.         Text = string.Empty;
+
+            if (rb_Receptionist.Checked || rb_MaintenanceStaff.Checked) 
+            {
+                rb_Receptionist.    Checked = false;
+                rb_MaintenanceStaff.Checked = false;
+            }
+           
+            txtBox_Username.      Text = string.Empty;
+            txtBox_PhoneNumber.   Text = string.Empty;
+        }
+
+        private void btn_Add_Click(object sender, EventArgs e)
+        {
+            string email       = txtBox_Email.Text;
+            string username    = txtBox_Username.Text;
+            string phoneNumber = txtBox_PhoneNumber.Text;
+
+            string role = null;
+            if      (rb_Receptionist.    Checked) role = "Receptionist";
+            else if (rb_MaintenanceStaff.Checked) role = "Maintenance Staff";
+
+            if (email == "" || username == "" || phoneNumber == "" || role == null) 
+            {
+                MessageBox.Show("Please fill in all fields and select a role");
+                return;
+            }
+
+            DataTable updatedAccounts = Methods.AddAccount(email, username, role, phoneNumber);
+            dgv_Account.DataSource = updatedAccounts;
+
+            MessageBox.Show("Account added successfully.");
+            btn_Clear_Click(sender, e);
+        }
     }
 }
