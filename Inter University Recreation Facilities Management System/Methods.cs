@@ -11,9 +11,15 @@ namespace Inter_University_Recreation_Facilities_Management_System
 {
     public class Methods
     {
-        static string connStr = System.Configuration.ConfigurationManager.ConnectionStrings["DBConnection"].ConnectionString;
-
-
+        //----------------------------------------------------------------------------------------------------------------------------------//
+        //                                                     CONNECTION STRING                                                            //
+        //----------------------------------------------------------------------------------------------------------------------------------//
+        static string database = System.Configuration.ConfigurationManager.ConnectionStrings["DBConnection"].ConnectionString;
+        
+        
+        //----------------------------------------------------------------------------------------------------------------------------------//
+        //                                          Login.cs : CredentialValidaton ; ln 55                                                  //                                                  
+        //----------------------------------------------------------------------------------------------------------------------------------//
         public static User CredentialValidation(String username, String password)
         {
             if (username == "" || password == "")
@@ -22,7 +28,7 @@ namespace Inter_University_Recreation_Facilities_Management_System
                 return null;
             }
 
-            using (SqlConnection connection = new SqlConnection(connStr))
+            using (SqlConnection connection = new SqlConnection(database))
             {
                 string query = "SELECT Email, Password, AccountRole, UserName, ContactNumber " +
                                "FROM ACCOUNT " +
@@ -56,6 +62,9 @@ namespace Inter_University_Recreation_Facilities_Management_System
         }
 
 
+        //----------------------------------------------------------------------------------------------------------------------------------//
+        //                                          forgorPassword.cs : ResetPassword ; ln 70                                               //                                                  
+        //----------------------------------------------------------------------------------------------------------------------------------//
         public static bool ResetPassword(string email, string newPassword, string confirmPassword)
         {
             if (email == "" || newPassword == "" || confirmPassword == "")
@@ -69,7 +78,7 @@ namespace Inter_University_Recreation_Facilities_Management_System
                 return false;
             }
 
-            using (SqlConnection connection = new SqlConnection(connStr))
+            using (SqlConnection connection = new SqlConnection(database))
             {
                 connection.Open();
 
@@ -106,9 +115,12 @@ namespace Inter_University_Recreation_Facilities_Management_System
         }
 
 
+        //----------------------------------------------------------------------------------------------------------------------------------//
+        //                                      1a_manager_ManageAccount.cs : LoadAccounts ; ln 68                                          //                                                  
+        //----------------------------------------------------------------------------------------------------------------------------------//
         public static DataTable LoadAccounts()
         {
-            using (SqlConnection connection = new SqlConnection(connStr))
+            using (SqlConnection connection = new SqlConnection(database))
             {
                 connection.Open();
 
@@ -126,9 +138,12 @@ namespace Inter_University_Recreation_Facilities_Management_System
         }
 
 
+        //----------------------------------------------------------------------------------------------------------------------------------//
+        //                                        1a_manager_ManageAccount.cs : AddAccount ; ln 134                                         //                                                  
+        //----------------------------------------------------------------------------------------------------------------------------------//
         public static DataTable AddAccount(string email, string username, string role, string phoneNumber) 
         {
-            using (SqlConnection connection = new SqlConnection(connStr)) 
+            using (SqlConnection connection = new SqlConnection(database)) 
             {
                 connection.Open();
 
@@ -168,6 +183,38 @@ namespace Inter_University_Recreation_Facilities_Management_System
                                      "WHERE AccountRole IN ('Receptionist', 'Maintenance Staff')";
 
                 using (SqlDataAdapter adapter = new SqlDataAdapter(selectQuery, connection))
+                {
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+                    return dataTable;
+                }
+            }
+        }
+
+
+        //----------------------------------------------------------------------------------------------------------------------------------//
+        //                                        1a_manager_ManageAccount.cs : DeleteAccount ; ln 162                                      //                                                  
+        //----------------------------------------------------------------------------------------------------------------------------------//
+        public static DataTable DeleteAccount(string accountID) 
+        {
+            using (SqlConnection connection = new SqlConnection(database)) 
+            {
+                connection.Open();
+
+                string deleteQuery = "DELETE FROM ACCOUNT " +
+                                     "WHERE AccountID = @AccountID";
+
+                using (SqlCommand deleteCommand = new SqlCommand(deleteQuery, connection)) 
+                {
+                    deleteCommand.Parameters.AddWithValue("@AccountID", accountID);
+                    deleteCommand.ExecuteNonQuery();
+                }
+
+                string selectQuery = "SELECT AccountID, Email, AccountRole, UserName, ContactNumber " +
+                                     "FROM ACCOUNT " +
+                                     "WHERE AccountRole IN ('Receptionist', 'Maintenance Staff')";
+
+                using (SqlDataAdapter adapter = new SqlDataAdapter(selectQuery, connection)) 
                 {
                     DataTable dataTable = new DataTable();
                     adapter.Fill(dataTable);

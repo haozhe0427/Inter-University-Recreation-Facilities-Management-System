@@ -137,5 +137,36 @@ namespace Inter_University_Recreation_Facilities_Management_System
             MessageBox.Show("Account added successfully.");
             btn_Clear_Click(sender, e);
         }
+
+        private void btn_Delete_Click(object sender, EventArgs e)
+        {
+            string accountID = lbl_SelectedAccountID.Text;
+
+            if (string.IsNullOrEmpty(accountID)) 
+            {
+                MessageBox.Show("Please select an account from the list first.");
+                return;
+            }
+
+            DialogResult confirm = MessageBox.Show(
+                "Are you sure want to delete account " + accountID,
+                "Confirm Delete",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+                );
+
+            if (confirm != DialogResult.Yes) return;
+
+            try
+            {
+                DataTable updatedAccounts = Methods.DeleteAccount(accountID);
+                dgv_Account.DataSource = updatedAccounts;
+
+                MessageBox.Show("Account deleted successfully.");
+                btn_Clear_Click(sender, e);
+            }
+            catch (SqlException ex) 
+            { MessageBox.Show("Could not delete this account" + ex.Message); }
+        }
     }
 }
