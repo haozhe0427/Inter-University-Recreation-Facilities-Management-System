@@ -45,7 +45,6 @@
             this.lbl_WelcomeMessage.Size = new System.Drawing.Size(312, 81);
             this.lbl_WelcomeMessage.TabIndex = 0;
             this.lbl_WelcomeMessage.Text = "Welcome, ";
-            this.lbl_WelcomeMessage.Click += new System.EventHandler(this.label1_Click);
             // 
             // btn_Logout
             // 

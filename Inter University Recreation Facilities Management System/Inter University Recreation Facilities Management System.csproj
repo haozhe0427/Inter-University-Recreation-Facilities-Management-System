@@ -173,6 +173,7 @@
     <Compile Include="Form_Shell.Designer.cs">
       <DependentUpon>Form_Shell.cs</DependentUpon>
     </Compile>
+    <Compile Include="Methods.cs" />
     <Compile Include="Roles\4_maintenanceStaff\4a_maintenanceStaff_Dashboard.cs">
       <SubType>UserControl</SubType>
     </Compile>

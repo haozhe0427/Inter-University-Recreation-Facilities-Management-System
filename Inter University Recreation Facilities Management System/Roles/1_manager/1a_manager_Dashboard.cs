@@ -28,8 +28,6 @@ namespace Inter_University_Recreation_Facilities_Management_System
 {
     public partial class manager_Dashboard : UserControl
     {
-        
-
         public manager_Dashboard(User user)
         {
             InitializeComponent();
@@ -37,57 +35,47 @@ namespace Inter_University_Recreation_Facilities_Management_System
             lbl_WelcomeMessage.Text = "Welcome, " + user.UserName + "!";
         }
 
+
         private void Aligned() 
         {
             lbl_WelcomeMessage.Left = (this.ClientSize.Width - lbl_WelcomeMessage.Width) / 2;
 
-            btn_ManageAccount.Left  = (this.ClientSize.Width - btn_ManageAccount.Width) / 2;
+            btn_ManageAccount. Left = (this.ClientSize.Width - btn_ManageAccount. Width) / 2;
             btn_ManageFacility.Left = (this.ClientSize.Width - btn_ManageFacility.Width) / 2;
             btn_AssignSchedule.Left = (this.ClientSize.Width - btn_AssignSchedule.Width) / 2;
-            btn_Request.Left        = (this.ClientSize.Width - btn_Request.Width) / 2;
+            btn_Request.       Left = (this.ClientSize.Width - btn_Request.       Width) / 2;
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-            
-        }
 
+        // Logout and return to the login page.
         public event EventHandler To_Login;
         private void btn_Logout_Click(object sender, EventArgs e)
-        {
-            To_Login?.Invoke(this, EventArgs.Empty);
-        }
+        { To_Login?.Invoke(this, EventArgs.Empty); }
 
+
+        // Manage user accounts
+        // (add, delete Reception & Maintenance Staff).
         public event EventHandler To_ManageAccount;
         private void btn_ManageAccount_Click(object sender, EventArgs e)
-        {
-            Aligned();
+        { To_ManageAccount?.Invoke(this, EventArgs.Empty); }
 
-            To_ManageAccount?.Invoke(this, EventArgs.Empty);
-        }
 
+        // Manage Sports and Recreation facilities information for each of the participated University 
+        // (add, edit, delete – facility type, rate, etc).
         public event EventHandler To_ManageFacility;
         private void btn_ManageFacility_Click(object sender, EventArgs e)
-        {
-            Aligned();
+        { To_ManageFacility?.Invoke(this, EventArgs.Empty); }
 
-            To_ManageFacility?.Invoke(this, EventArgs.Empty);
-        }
 
+        // Assign maintenance schedule and assign maintenance staff to handle routine maintenance of the facilities.
         public event EventHandler To_AssignSchedule;
         private void btn_AssignSchedule_Click(object sender, EventArgs e)
-        {
-            Aligned();
+        { To_AssignSchedule?.Invoke(this, EventArgs.Empty); }
 
-            To_AssignSchedule?.Invoke(this, EventArgs.Empty);
-        }
 
+        // View and approve equipment repair or replacement request from the Maintenance Staff.
         public event EventHandler To_EquipmentRequest;
         private void btn_Request_Click(object sender, EventArgs e)
-        {
-            Aligned();
-
-            To_EquipmentRequest?.Invoke(this, EventArgs.Empty);
-        }
+        { To_EquipmentRequest?.Invoke(this, EventArgs.Empty); }
     }
 }
