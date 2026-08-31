@@ -34,28 +34,22 @@ namespace Inter_University_Recreation_Facilities_Management_System
             lbl_PhoneNumber.Left = dgv_ManageAccount;
 
             lbl_SelectedAccountID.Left = lbl_AccountID.Left + 110;
-            lbl_SelectedAccountID.Top  = lbl_AccountID.Top -
-                                         (lbl_SelectedAccountID.Height - lbl_AccountID.Height) / 2;
+            lbl_SelectedAccountID.Top  = lbl_AccountID.Top - (lbl_SelectedAccountID.Height - lbl_AccountID.Height) / 2;
 
             txtBox_Email.Left = lbl_Email.Right + 10;
-            txtBox_Email.Top  = lbl_Email.Top - 
-                                (txtBox_Email.Height - lbl_Email.Height) / 2;
+            txtBox_Email.Top  = lbl_Email.Top - (txtBox_Email.Height - lbl_Email.Height) / 2;
 
             rb_Receptionist.Left = lbl_Role.Left + 70;
-            rb_Receptionist.Top  = lbl_Role.Top - 
-                                   (rb_Receptionist.Height - lbl_Role.Height) / 2;
+            rb_Receptionist.Top  = lbl_Role.Top - (rb_Receptionist.Height - lbl_Role.Height) / 2;
 
             rb_MaintenanceStaff.Left = rb_Receptionist.Right + 10; // gap after "Receptionist" text, not a fixed offset
-            rb_MaintenanceStaff.Top  = rb_Receptionist.Top - 
-                                       (rb_MaintenanceStaff.Height - rb_Receptionist.Height) / 2;
+            rb_MaintenanceStaff.Top  = rb_Receptionist.Top - (rb_MaintenanceStaff.Height - rb_Receptionist.Height) / 2;
 
             txtBox_Username.Left = lbl_Username.Right + 10;
-            txtBox_Username.Top  = lbl_Username.Top - 
-                                   (txtBox_Username.Height - lbl_Username.Height) / 2;
+            txtBox_Username.Top  = lbl_Username.Top - (txtBox_Username.Height - lbl_Username.Height) / 2;
 
             txtBox_PhoneNumber.Left = lbl_PhoneNumber.Right + 10;
-            txtBox_PhoneNumber.Top  = lbl_PhoneNumber.Top - 
-                                      (txtBox_PhoneNumber.Height - lbl_PhoneNumber.Height) / 2;
+            txtBox_PhoneNumber.Top  = lbl_PhoneNumber.Top - (txtBox_PhoneNumber.Height - lbl_PhoneNumber.Height) / 2;
 
             btn_Delete.Left = dgv_Account.Right - btn_Delete.Width;
             btn_Add.   Left = btn_Delete. Left  - btn_Add.   Width - 10;
@@ -166,7 +160,7 @@ namespace Inter_University_Recreation_Facilities_Management_System
                 btn_Clear_Click(sender, e);
             }
             catch (SqlException ex) 
-            { MessageBox.Show("Could not delete this account" + ex.Message); }
+            { MessageBox.Show("Could not delete this account " + ex.Message); }
         }
     }
 }

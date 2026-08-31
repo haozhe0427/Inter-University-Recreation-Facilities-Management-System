@@ -222,5 +222,147 @@ namespace Inter_University_Recreation_Facilities_Management_System
                 }
             }
         }
+
+
+        //----------------------------------------------------------------------------------------------------------------------------------//
+        //                                        1b_manager_ManageFacility.cs : LoadFacility ; ln 61                                       //                                                  
+        //----------------------------------------------------------------------------------------------------------------------------------//
+        public static DataTable LoadFacility() 
+        {
+            using (SqlConnection connection = new SqlConnection(database)) 
+            {
+                connection.Open();
+
+                string query = "SELECT * FROM FACILITY";
+
+                using (SqlDataAdapter adapter = new SqlDataAdapter(query, connection)) 
+                {
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+                    return dataTable;
+                }
+            }
+        }
+
+
+
+        //----------------------------------------------------------------------------------------------------------------------------------//
+        //                                        1b_manager_ManageFacility.cs : AddFacility ; ln 137                                       //                                                  
+        //----------------------------------------------------------------------------------------------------------------------------------//
+        public static DataTable AddFacility(string facility_name, string facility_type, string facility_status, double facility_rate) 
+        {
+            using (SqlConnection connection = new SqlConnection(database)) 
+            {
+                connection.Open();
+
+                string newFacilityID = "F001";
+                string getMaxIdQuery = "SELECT TOP 1 FacilityID FROM FACILITY " +
+                                       "ORDER BY FacilityID DESC";
+
+                using (SqlCommand getMaxIdcommand = new SqlCommand(getMaxIdQuery, connection)) 
+                {
+                    object result = getMaxIdcommand.ExecuteScalar();
+                    if (result != null) 
+                    {
+                        string lastId = result.ToString();
+                        int number = int.Parse(lastId.Substring(1));
+                        newFacilityID = "F" + (number + 1).ToString("D3");
+                    }
+                }
+
+                string insertQuery = "INSERT INTO FACILITY (FacilityID, FacilityName, FacilityType, FacilityStatus, Rate) " +
+                                     "VALUES (@FacilityID, @FacilityName, @FacilityType, @FacilityStatus, @Rate)";
+
+                using (SqlCommand insertCommand = new SqlCommand(insertQuery, connection)) 
+                {
+                    insertCommand.Parameters.AddWithValue("@FacilityID", newFacilityID);
+                    insertCommand.Parameters.AddWithValue("@FacilityName", facility_name);
+                    insertCommand.Parameters.AddWithValue("@FacilityType", facility_type);
+                    insertCommand.Parameters.AddWithValue("@FacilityStatus", facility_status);
+                    insertCommand.Parameters.AddWithValue("@Rate", facility_rate);
+
+                    insertCommand.ExecuteNonQuery();
+                }
+
+                string selectQuery = "SELECT * FROM FACILITY";
+
+                using (SqlDataAdapter adapter = new SqlDataAdapter(selectQuery, connection)) 
+                {
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+                    return dataTable;
+                }
+            }
+        }
+
+
+        //----------------------------------------------------------------------------------------------------------------------------------//
+        //                                      1b_manager_ManageFacility.cs : DeleteFacility ; ln 168                                      //                                                  
+        //----------------------------------------------------------------------------------------------------------------------------------//
+        public static DataTable DeleteFacility(string facilityID) 
+        {
+            using (SqlConnection connection = new SqlConnection(database)) 
+            {
+                connection.Open();
+
+                string deleteQuery = "DELETE * FROM FACILITY " +
+                                     "WHERE FaclityID = @FacilityID";
+
+                using (SqlCommand deleteCommand = new SqlCommand(deleteQuery, connection)) 
+                {
+                    deleteCommand.Parameters.AddWithValue("@FacilityID", facilityID);
+                    deleteCommand.ExecuteNonQuery();
+                }
+
+                string selectQuery = "SELECT * FROM FACILITY";
+
+                using (SqlDataAdapter adapter = new SqlDataAdapter(selectQuery, connection)) 
+                {
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+                    return dataTable;
+                }
+            }
+        }
+
+
+        //----------------------------------------------------------------------------------------------------------------------------------//
+        //                                     1b_manager_ManageFacility.cs : UpdateFacility ; ln 201                                       //                                                  
+        //----------------------------------------------------------------------------------------------------------------------------------//
+        public static DataTable UpdateFacility(string facility_id, string facility_name, string facility_type, string facility_status, double facility_rate) 
+        {
+            using (SqlConnection connection = new SqlConnection(database)) 
+            {
+                connection.Open();
+
+                string updateQuery = "UPDATE FACILITY " +
+                                     "SET " +
+                                     "FacilityName     = @FacilityName, " +
+                                     "FacilityType     = @Facilitytype, " +
+                                     "FacilityStatus   = @FacilityStatus, " +
+                                     "Rate             = @Rate " +
+                                     "WHERE FacilityID = @FacilityID";
+
+                using (SqlCommand updateCommand = new SqlCommand(updateQuery, connection)) 
+                {
+                    updateCommand.Parameters.AddWithValue("@FacilityName", facility_name);
+                    updateCommand.Parameters.AddWithValue("@FacilityType", facility_type);
+                    updateCommand.Parameters.AddWithValue("@FacilityStatus", facility_status);
+                    updateCommand.Parameters.AddWithValue("@Rate", facility_rate);
+                    updateCommand.Parameters.AddWithValue("@FacilityID", facility_id);
+
+                    updateCommand.ExecuteNonQuery();
+                }
+
+                string selectQuery = "SELECT * FROM FACILITY";
+
+                using (SqlDataAdapter adapter = new SqlDataAdapter(selectQuery, connection)) 
+                {
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+                    return dataTable;
+                }
+            }
+        }
     }
 }
