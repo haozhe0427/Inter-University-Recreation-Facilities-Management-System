@@ -364,5 +364,24 @@ namespace Inter_University_Recreation_Facilities_Management_System
                 }
             }
         }
+
+
+        public static DataTable LoadSchedules()
+        {
+            using (SqlConnection connection = new SqlConnection(database))
+            {
+                connection.Open();
+
+                string query = "SELECT MaintenanceID, FacilityID, AccountID, MaintenanceType, MaintenanceStatus, MaintenanceDate " +
+                               "FROM MAINTENANCE ";
+
+                using (SqlDataAdapter adapter = new SqlDataAdapter(query, connection))
+                {
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+                    return dataTable;
+                }
+            }
+        }
     }
 }

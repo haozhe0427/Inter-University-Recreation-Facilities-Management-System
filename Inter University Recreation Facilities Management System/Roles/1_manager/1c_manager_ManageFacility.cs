@@ -24,35 +24,35 @@ namespace Inter_University_Recreation_Facilities_Management_System
             lbl_ManageFacility.Left = (this.ClientSize.Width - lbl_ManageFacility.Width) / 2;
             int dgv_ManageFacility = (this.ClientSize.Width - dgv_Facility.Width) / 2;
 
-            dgv_Facility.Left = dgv_ManageFacility;
-            lbl_FacilityID.Left = dgv_ManageFacility;
+            dgv_Facility.    Left = dgv_ManageFacility;
+            lbl_FacilityID.  Left = dgv_ManageFacility;
             lbl_FacilityName.Left = dgv_ManageFacility;
             lbl_FacilityType.Left = dgv_ManageFacility;
-            lbl_Status.Left = dgv_ManageFacility;
-            lbl_Rate.Left = dgv_ManageFacility;
+            lbl_Status.      Left = dgv_ManageFacility;
+            lbl_Rate.        Left = dgv_ManageFacility;
 
             lbl_SelectedFacilityID.Left = lbl_FacilityID.Left + 110;
             lbl_SelectedFacilityID.Top = lbl_FacilityID.Top - (lbl_SelectedFacilityID.Height - lbl_FacilityID.Height) / 2;
 
             txtBox_FacilityName.Left = lbl_FacilityName.Left + 140;
-            txtBox_FacilityName.Top = lbl_FacilityName.Top - (txtBox_FacilityName.Height - lbl_FacilityName.Height) / 2;
+            txtBox_FacilityName. Top = lbl_FacilityName.Top - (txtBox_FacilityName.Height - lbl_FacilityName.Height) / 2;
 
             rb_Indoor.Left = lbl_FacilityType.Left + 120;
-            rb_Indoor.Top = lbl_FacilityType.Top - (rb_Indoor.Height - lbl_FacilityType.Height) / 2;
+            rb_Indoor. Top = lbl_FacilityType.Top - (rb_Indoor.Height - lbl_FacilityType.Height) / 2;
 
             rb_Outdoor.Left = rb_Indoor.Right + 10;
-            rb_Outdoor.Top = rb_Outdoor.Top - (rb_Outdoor.Height - rb_Indoor.Height) / 2;
+            rb_Outdoor. Top = rb_Outdoor.Top - (rb_Outdoor.Height - rb_Indoor.Height) / 2;
 
             cBox_Status.Left = lbl_Status.Left + 140;
-            cBox_Status.Top = lbl_Status.Top - (cBox_Status.Height - lbl_Status.Height) / 2;
+            cBox_Status. Top = lbl_Status.Top - (cBox_Status.Height - lbl_Status.Height) / 2;
 
             txtBox_Rate.Left = lbl_Rate.Left + 90;
-            txtBox_Rate.Top = lbl_Rate.Top - (txtBox_Rate.Height - lbl_Rate.Height) / 2;
+            txtBox_Rate. Top = lbl_Rate.Top - (txtBox_Rate.Height - lbl_Rate.Height) / 2;
 
             btn_Update.Left = dgv_Facility.Right - btn_Update.Width;
-            btn_Delete.Left = btn_Update.  Left  - btn_Delete.Width - 10;
-            btn_Add.   Left = btn_Delete.  Left  - btn_Add.   Width - 10;
-            btn_Clear. Left = btn_Add.     Left  - btn_Clear. Width - 10;
+            btn_Delete.Left = btn_Update.Left  - btn_Delete.Width - 10;
+            btn_Add.   Left = btn_Delete.Left  - btn_Add.Width - 10;
+            btn_Clear. Left = btn_Add.Left  - btn_Clear.Width - 10;
         }
 
 
@@ -61,7 +61,7 @@ namespace Inter_University_Recreation_Facilities_Management_System
             DataTable dataTable = Methods.LoadFacility();
 
             dgv_Facility.AutoGenerateColumns = false;
-            dgv_Facility.DataSource          = dataTable;
+            dgv_Facility.DataSource = dataTable;
         }
 
 
