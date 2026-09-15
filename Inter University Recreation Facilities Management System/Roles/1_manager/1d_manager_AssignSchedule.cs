@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -19,17 +20,17 @@ namespace Inter_University_Recreation_Facilities_Management_System
             int dgv_Maintenance = (this.ClientSize.Width - dgv_MaintenanceSchedule.Width) / 2;
 
             dgv_MaintenanceSchedule.Left = dgv_Maintenance;
-            lbl_MaintenanceID.Left = dgv_Maintenance;
-            lbl_FacilityID.Left = dgv_Maintenance;
-            lbl_AccountID.Left = dgv_Maintenance;
-            lbl_MaintenanceType.Left = dgv_Maintenance;
-            lbl_Status.Left = dgv_Maintenance;
+            lbl_MaintenanceID.      Left = dgv_Maintenance;
+            lbl_FacilityID.         Left = dgv_Maintenance;
+            lbl_AccountID.          Left = dgv_Maintenance;
+            lbl_MaintenanceType.    Left = dgv_Maintenance;
+            lbl_Status.             Left = dgv_Maintenance;
 
-            lbl_SelectedMaintenanceID.Left = lbl_MaintenanceID.Left + 110;
+            lbl_SelectedMaintenanceID.Left = lbl_MaintenanceID.Left + 140;
             lbl_SelectedMaintenanceID.Top = lbl_MaintenanceID.Top - (lbl_SelectedMaintenanceID.Height - lbl_MaintenanceID.Height) / 2;
 
-            lbl_SelectedFacilityID.Left = lbl_FacilityID.Left + 110;
-            lbl_SelectedFacilityID.Top = lbl_FacilityID.Top - (lbl_SelectedFacilityID.Height - lbl_FacilityID.Height) / 2;
+            txtBox_FacilityID.Left = lbl_FacilityID.Left + 90;
+            txtBox_FacilityID.Top = lbl_FacilityID.Top - (txtBox_FacilityID.Height - lbl_FacilityID.Height) / 2;
 
             txtBox_AccountID.Left = lbl_AccountID.Left + 110;
             txtBox_AccountID.Top = lbl_AccountID.Top - (txtBox_AccountID.Height - lbl_AccountID.Height) / 2;
@@ -49,6 +50,8 @@ namespace Inter_University_Recreation_Facilities_Management_System
             btn_Update.Left = dgv_MaintenanceSchedule.Right - btn_Update.Width;
             btn_Add.Left = btn_Update.Left - btn_Add.Width - 10;
             btn_Clear.Left = btn_Add.Left - btn_Clear.Width - 10;
+
+            lbl_Date.Left = (this.ClientSize.Width - lbl_Date.Width) / 2;
         }
 
 
@@ -73,6 +76,72 @@ namespace Inter_University_Recreation_Facilities_Management_System
         private void btn_Back_Click(object sender, EventArgs e)
         {
             To_Dashboard?.Invoke(this, EventArgs.Empty);
+        }
+
+
+        private void dgv_MaintenanceSchedule_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+
+            DataGridViewRow selectedRow = dgv_MaintenanceSchedule.Rows[e.RowIndex];
+
+            lbl_SelectedMaintenanceID.Text = selectedRow.Cells["MaintenanceID"].Value.ToString();
+            txtBox_FacilityID.        Text = selectedRow.Cells["FacilityID"   ].Value.ToString();
+            txtBox_AccountID.         Text = selectedRow.Cells["AccountID"    ].Value.ToString();
+
+            string maintenanceType = selectedRow.Cells["MaintenanceType"].Value.ToString();
+            rb_Installation. Checked = (maintenanceType == "Installation" );
+            rb_Fixing.       Checked = (maintenanceType == "Fixing"       );
+            rb_Dismantlement.Checked = (maintenanceType == "Dismantlement");
+
+            string status = selectedRow.Cells["Status"].Value.ToString();
+            cBox_Status.Text = status;
+
+            var cellValue = dgv_MaintenanceSchedule.Rows[e.RowIndex].Cells["Date"].Value;
+            if (cellValue != null && DateTime.TryParse(cellValue.ToString(), out DateTime date))
+            {
+                dateTimePicker1.Value = date;
+            }
+        }       
+
+
+        private void btn_Clear_Click(object sender, EventArgs e)
+        {
+            lbl_SelectedMaintenanceID.Text = string.Empty;
+            txtBox_FacilityID.        Text = string.Empty;
+            txtBox_AccountID.         Text = string.Empty;
+
+            if (rb_Installation.Checked || rb_Fixing.Checked || rb_Dismantlement.Checked)
+            {
+                rb_Installation. Checked = false;
+                rb_Fixing.       Checked = false;
+                rb_Dismantlement.Checked = false;
+            }
+
+            cBox_Status.SelectedIndex = 0;
+        }
+
+        private void btn_Add_Click(object sender, EventArgs e)
+        {
+            string facilityID = txtBox_FacilityID.Text;
+            string accountID  = txtBox_AccountID.Text;
+
+            string maintenanceType = null;
+            if      (rb_Installation.Checked ) maintenanceType = "Installation";
+            else if (rb_Fixing.Checked       ) maintenanceType = "Fixing";
+            else if (rb_Dismantlement.Checked) maintenanceType = "Dismantlement";
+
+            if (facilityID == "" || accountID == "" || maintenanceType == null)
+            {
+                MessageBox.Show("Please fill in all fields.");
+                return;
+            }
+
+            DataTable updatedSchedules = Methods.AssignSchedule(facilityID, accountID, maintenanceType, dateTimePicker1.Value);
+            dgv_MaintenanceSchedule.DataSource = updatedSchedules;
+
+            MessageBox.Show("Schedule assigned successfully.");
+            btn_Clear_Click(sender, e);
         }
     }
 }

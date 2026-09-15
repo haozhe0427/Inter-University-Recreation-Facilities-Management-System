@@ -139,7 +139,7 @@ namespace Inter_University_Recreation_Facilities_Management_System
 
 
         //----------------------------------------------------------------------------------------------------------------------------------//
-        //                                        1a_manager_ManageAccount.cs : AddAccount ; ln 134                                         //                                                  
+        //                                        1a_manager_ManageAccount.cs : AddAccount ; ln 128                                         //                                                  
         //----------------------------------------------------------------------------------------------------------------------------------//
         public static DataTable AddAccount(string email, string username, string role, string phoneNumber) 
         {
@@ -168,11 +168,11 @@ namespace Inter_University_Recreation_Facilities_Management_System
 
                 using (SqlCommand insertCommand = new SqlCommand(insertQuery, connection)) 
                 {
-                    insertCommand.Parameters.AddWithValue("@AccountID",     newAccountID);
-                    insertCommand.Parameters.AddWithValue("@Email",         email);
-                    insertCommand.Parameters.AddWithValue("@Password",      defaultPassword);
-                    insertCommand.Parameters.AddWithValue("@AccountRole",   role);
-                    insertCommand.Parameters.AddWithValue("@UserName",      username);
+                    insertCommand.Parameters.AddWithValue("@AccountID", newAccountID);
+                    insertCommand.Parameters.AddWithValue("@Email", email);
+                    insertCommand.Parameters.AddWithValue("@Password", defaultPassword);
+                    insertCommand.Parameters.AddWithValue("@AccountRole", role);
+                    insertCommand.Parameters.AddWithValue("@UserName", username);
                     insertCommand.Parameters.AddWithValue("@ContactNumber", phoneNumber);
 
                     insertCommand.ExecuteNonQuery();
@@ -366,6 +366,9 @@ namespace Inter_University_Recreation_Facilities_Management_System
         }
 
 
+        //----------------------------------------------------------------------------------------------------------------------------------//
+        //                                     1b_manager_AssignSchedule.cs : LoadSchedules ; ln 68                                         //                                                  
+        //----------------------------------------------------------------------------------------------------------------------------------//
         public static DataTable LoadSchedules()
         {
             using (SqlConnection connection = new SqlConnection(database))
@@ -376,6 +379,61 @@ namespace Inter_University_Recreation_Facilities_Management_System
                                "FROM MAINTENANCE ";
 
                 using (SqlDataAdapter adapter = new SqlDataAdapter(query, connection))
+                {
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+                    return dataTable;
+                }
+            }
+        }
+
+
+        public static DataTable AssignSchedule(string facilityID, string accountID, string maintenanceType, DateTime date)
+        {
+            using (SqlConnection connection = new SqlConnection(database))
+            {
+                connection.Open();
+
+                string newMaintenanceID = "M00001";
+                string getMaxIdQuery = "SELECT TOP 1 MaintenanceID FROM MAINTENANCE " +
+                                          "ORDER BY MaintenanceID DESC";
+
+                using (SqlCommand getMaxIdCommand = new SqlCommand(getMaxIdQuery, connection))
+                {
+                    object result = getMaxIdCommand.ExecuteScalar();
+                    if (result != null)
+                    {
+                        string lastId = result.ToString();
+                        int number = int.Parse(lastId.Substring(1));
+                        newMaintenanceID = "M" + (number + 1).ToString("D5");
+                    }
+                }
+                string status = "Unfinished";
+                string startTime = null;
+                string endTime = null;
+
+                string insertQuery = "INSERT INTO MAINTENANCE (MaintenanceID, FacilityID, AccountID, MaintenanceType, " +
+                                     "MaintenanceStatus, MaintenanceDate, MaintenanceStartTime, MaintenanceEndTime) " +
+                                     "VALUES (@MaintenanceID, @FacilityID, @AccountID, @MaintenanceType, " +
+                                     "@MaintenanceStatus, @MaintenanceDate, @MaintenanceStartTime, @MaintenanceEndTime)";
+
+                using (SqlCommand insertCommand = new SqlCommand(insertQuery, connection))
+                {
+                    insertCommand.Parameters.AddWithValue("@MaintenanceID", newMaintenanceID);
+                    insertCommand.Parameters.AddWithValue("@FacilityID", facilityID);
+                    insertCommand.Parameters.AddWithValue("@AccountID", accountID);
+                    insertCommand.Parameters.AddWithValue("@MaintenanceType", maintenanceType);
+                    insertCommand.Parameters.AddWithValue("@MaintenanceStatus", status);
+                    insertCommand.Parameters.AddWithValue("@MaintenanceDate", date);
+                    insertCommand.Parameters.AddWithValue("@MaintenanceStartTime", (object)startTime ?? DBNull.Value);
+                    insertCommand.Parameters.AddWithValue("@MaintenanceEndTime", (object)endTime ?? DBNull.Value);
+                    insertCommand.ExecuteNonQuery();
+                }
+
+                string selectQuery = "SELECT MaintenanceID, FacilityID, AccountID, MaintenanceType, MaintenanceStatus, MaintenanceDate " +
+                                     "FROM MAINTENANCE ";
+
+                using (SqlDataAdapter adapter = new SqlDataAdapter(selectQuery, connection))
                 {
                     DataTable dataTable = new DataTable();
                     adapter.Fill(dataTable);

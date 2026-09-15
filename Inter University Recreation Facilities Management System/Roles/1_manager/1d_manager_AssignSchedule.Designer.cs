@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lbl_AssignSchedule = new System.Windows.Forms.Label();
             this.btn_Back = new System.Windows.Forms.Button();
             this.dgv_MaintenanceSchedule = new System.Windows.Forms.DataGridView();
@@ -45,17 +45,19 @@
             this.lbl_Status = new System.Windows.Forms.Label();
             this.cBox_Status = new System.Windows.Forms.ComboBox();
             this.lbl_SelectedMaintenanceID = new System.Windows.Forms.Label();
-            this.lbl_SelectedFacilityID = new System.Windows.Forms.Label();
             this.rb_Installation = new System.Windows.Forms.RadioButton();
             this.rb_Fixing = new System.Windows.Forms.RadioButton();
             this.rb_Dismantlement = new System.Windows.Forms.RadioButton();
             this.txtBox_AccountID = new System.Windows.Forms.TextBox();
+            this.lbl_Date = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.MaintenanceID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FacilityID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AccountID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaintenanceType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtBox_FacilityID = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_MaintenanceSchedule)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,14 +89,14 @@
             this.dgv_MaintenanceSchedule.AllowUserToResizeColumns = false;
             this.dgv_MaintenanceSchedule.AllowUserToResizeRows = false;
             this.dgv_MaintenanceSchedule.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_MaintenanceSchedule.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_MaintenanceSchedule.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgv_MaintenanceSchedule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_MaintenanceSchedule.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaintenanceID,
@@ -103,31 +105,32 @@
             this.MaintenanceType,
             this.Status,
             this.Date});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Bahnschrift SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_MaintenanceSchedule.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Bahnschrift SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_MaintenanceSchedule.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgv_MaintenanceSchedule.Location = new System.Drawing.Point(52, 492);
             this.dgv_MaintenanceSchedule.Name = "dgv_MaintenanceSchedule";
             this.dgv_MaintenanceSchedule.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Bahnschrift SemiLight", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_MaintenanceSchedule.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Bahnschrift SemiLight", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_MaintenanceSchedule.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgv_MaintenanceSchedule.RowHeadersWidth = 51;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgv_MaintenanceSchedule.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgv_MaintenanceSchedule.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dgv_MaintenanceSchedule.RowTemplate.Height = 24;
             this.dgv_MaintenanceSchedule.Size = new System.Drawing.Size(1680, 478);
             this.dgv_MaintenanceSchedule.TabIndex = 5;
+            this.dgv_MaintenanceSchedule.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_MaintenanceSchedule_CellClick);
             // 
             // btn_Update
             // 
@@ -150,6 +153,7 @@
             this.btn_Add.TabIndex = 33;
             this.btn_Add.Text = "Add";
             this.btn_Add.UseVisualStyleBackColor = true;
+            this.btn_Add.Click += new System.EventHandler(this.btn_Add_Click);
             // 
             // btn_Clear
             // 
@@ -161,6 +165,7 @@
             this.btn_Clear.TabIndex = 34;
             this.btn_Clear.Text = "Clear";
             this.btn_Clear.UseVisualStyleBackColor = true;
+            this.btn_Clear.Click += new System.EventHandler(this.btn_Clear_Click);
             // 
             // lbl_MaintenanceID
             // 
@@ -234,15 +239,6 @@
             this.lbl_SelectedMaintenanceID.Size = new System.Drawing.Size(0, 28);
             this.lbl_SelectedMaintenanceID.TabIndex = 41;
             // 
-            // lbl_SelectedFacilityID
-            // 
-            this.lbl_SelectedFacilityID.AutoSize = true;
-            this.lbl_SelectedFacilityID.Font = new System.Drawing.Font("Bahnschrift SemiBold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_SelectedFacilityID.Location = new System.Drawing.Point(162, 274);
-            this.lbl_SelectedFacilityID.Name = "lbl_SelectedFacilityID";
-            this.lbl_SelectedFacilityID.Size = new System.Drawing.Size(0, 28);
-            this.lbl_SelectedFacilityID.TabIndex = 42;
-            // 
             // rb_Installation
             // 
             this.rb_Installation.AutoSize = true;
@@ -287,6 +283,26 @@
             this.txtBox_AccountID.Size = new System.Drawing.Size(271, 35);
             this.txtBox_AccountID.TabIndex = 47;
             // 
+            // lbl_Date
+            // 
+            this.lbl_Date.AutoSize = true;
+            this.lbl_Date.Font = new System.Drawing.Font("Bahnschrift SemiBold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Date.Location = new System.Drawing.Point(727, 218);
+            this.lbl_Date.Name = "lbl_Date";
+            this.lbl_Date.Size = new System.Drawing.Size(64, 28);
+            this.lbl_Date.TabIndex = 48;
+            this.lbl_Date.Text = "Date:";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Font = new System.Drawing.Font("Bahnschrift SemiBold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(995, 247);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(178, 35);
+            this.dateTimePicker1.TabIndex = 49;
+            this.dateTimePicker1.Value = new System.DateTime(2026, 9, 15, 0, 0, 0, 0);
+            // 
             // MaintenanceID
             // 
             this.MaintenanceID.DataPropertyName = "MaintenanceID";
@@ -330,20 +346,30 @@
             // Date
             // 
             this.Date.DataPropertyName = "MaintenanceDate";
-            this.Date.HeaderText = "Date";
+            this.Date.HeaderText = "   Date";
             this.Date.MinimumWidth = 6;
             this.Date.Name = "Date";
             this.Date.ReadOnly = true;
+            // 
+            // txtBox_FacilityID
+            // 
+            this.txtBox_FacilityID.Font = new System.Drawing.Font("Bahnschrift", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBox_FacilityID.Location = new System.Drawing.Point(162, 271);
+            this.txtBox_FacilityID.Name = "txtBox_FacilityID";
+            this.txtBox_FacilityID.Size = new System.Drawing.Size(287, 35);
+            this.txtBox_FacilityID.TabIndex = 50;
             // 
             // manager_AssignSchedule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.txtBox_FacilityID);
+            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.lbl_Date);
             this.Controls.Add(this.txtBox_AccountID);
             this.Controls.Add(this.rb_Dismantlement);
             this.Controls.Add(this.rb_Fixing);
             this.Controls.Add(this.rb_Installation);
-            this.Controls.Add(this.lbl_SelectedFacilityID);
             this.Controls.Add(this.lbl_SelectedMaintenanceID);
             this.Controls.Add(this.cBox_Status);
             this.Controls.Add(this.lbl_Status);
@@ -380,16 +406,18 @@
         private System.Windows.Forms.Label lbl_Status;
         private System.Windows.Forms.ComboBox cBox_Status;
         private System.Windows.Forms.Label lbl_SelectedMaintenanceID;
-        private System.Windows.Forms.Label lbl_SelectedFacilityID;
         private System.Windows.Forms.RadioButton rb_Installation;
         private System.Windows.Forms.RadioButton rb_Fixing;
         private System.Windows.Forms.RadioButton rb_Dismantlement;
         private System.Windows.Forms.TextBox txtBox_AccountID;
+        private System.Windows.Forms.Label lbl_Date;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaintenanceID;
         private System.Windows.Forms.DataGridViewTextBoxColumn FacilityID;
         private System.Windows.Forms.DataGridViewTextBoxColumn AccountID;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaintenanceType;
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;
+        private System.Windows.Forms.TextBox txtBox_FacilityID;
     }
 }
