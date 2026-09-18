@@ -116,7 +116,67 @@ namespace Inter_University_Recreation_Facilities_Management_System
 
 
         //----------------------------------------------------------------------------------------------------------------------------------//
-        //                                      1b_manager_ManageAccount.cs : LoadAccounts ; ln 68                                          //                                                  
+        //                                      1b_manager_ManageAccount.cs : SearchAccounts ; ln 116                                       //                                                  
+        //----------------------------------------------------------------------------------------------------------------------------------//
+        public static DataTable SearchAccount(string accountID, string email, string role, string username, string phoneNumber)
+        {
+            using (SqlConnection connection = new SqlConnection(database))
+            {
+                connection.Open();
+
+                var conditions = new List<string>();
+                var parameters = new List<SqlParameter>();
+
+                if (!string.IsNullOrEmpty(accountID)) 
+                {
+                    conditions.Add("AccountID = @AccountID");
+                    parameters.Add(new SqlParameter("@AccountID", accountID));
+                }
+                if (!string.IsNullOrEmpty(email))
+                {
+                    conditions.Add("Email = @Email");
+                    parameters.Add(new SqlParameter("@Email", email));
+                }
+                if (!string.IsNullOrEmpty(role))
+                {
+                    conditions.Add("AccountRole = @AccountRole");
+                    parameters.Add(new SqlParameter("@AccountRole", role));
+                }
+                if (!string.IsNullOrEmpty(username))
+                {
+                    conditions.Add("UserName = @UserName");
+                    parameters.Add(new SqlParameter("@UserName", username));
+                }
+                if (!string.IsNullOrEmpty(phoneNumber))
+                {
+                    conditions.Add("ContactNumber = @ContactNumber");
+                    parameters.Add(new SqlParameter("@ContactNumber", phoneNumber));
+                }
+
+                string selectQuery = "SELECT AccountID, Email, AccountRole, UserName, ContactNumber " +
+                                     "FROM ACCOUNT WHERE " + string.Join(" AND ", conditions);
+
+                using (SqlDataAdapter adapter = new SqlDataAdapter(selectQuery, connection))
+                {
+                    adapter.SelectCommand.Parameters.AddRange(parameters.ToArray());
+
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+
+                    if (dataTable.Rows.Count == 0)
+                    {
+                        MessageBox.Show("No matching records found.");
+                        LoadAccounts(); // Reload all accounts if no matches found
+                    }
+
+                    return dataTable;
+                }
+            }
+        }
+
+
+        //----------------------------------------------------------------------------------------------------------------------------------//
+        //                                      1b_manager_ManageAccount.cs : LoadAccounts ; ln 62                                          //                                                  
         //----------------------------------------------------------------------------------------------------------------------------------//
         public static DataTable LoadAccounts()
         {
@@ -139,7 +199,7 @@ namespace Inter_University_Recreation_Facilities_Management_System
 
 
         //----------------------------------------------------------------------------------------------------------------------------------//
-        //                                        1b_manager_ManageAccount.cs : AddAccount ; ln 128                                         //                                                  
+        //                                        1b_manager_ManageAccount.cs : AddAccount ; ln 151                                         //                                                  
         //----------------------------------------------------------------------------------------------------------------------------------//
         public static DataTable AddAccount(string email, string username, string role, string phoneNumber) 
         {
@@ -193,7 +253,7 @@ namespace Inter_University_Recreation_Facilities_Management_System
 
 
         //----------------------------------------------------------------------------------------------------------------------------------//
-        //                                        1b_manager_ManageAccount.cs : DeleteAccount ; ln 162                                      //                                                  
+        //                                        1b_manager_ManageAccount.cs : DeleteAccount ; ln 179                                      //                                                  
         //----------------------------------------------------------------------------------------------------------------------------------//
         public static DataTable DeleteAccount(string accountID) 
         {

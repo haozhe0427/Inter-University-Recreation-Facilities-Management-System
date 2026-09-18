@@ -54,6 +54,7 @@ namespace Inter_University_Recreation_Facilities_Management_System
             btn_Delete.Left = dgv_Account.Right - btn_Delete.Width;
             btn_Add.   Left = btn_Delete. Left  - btn_Add.   Width - 10;
             btn_Clear. Left = btn_Add.    Left  - btn_Clear. Width - 10;
+            btn_Search.Left = btn_Clear.  Left - btn_Search. Width - 10;
         }
 
 
@@ -78,6 +79,7 @@ namespace Inter_University_Recreation_Facilities_Management_System
         private void btn_Back_Click(object sender, EventArgs e)
         { To_Dashboard?.Invoke(this, EventArgs.Empty); }
 
+
         private void dgv_Account_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
@@ -94,6 +96,29 @@ namespace Inter_University_Recreation_Facilities_Management_System
             rb_MaintenanceStaff.Checked = (role == "Maintenance Staff");
         }
 
+
+        private void btn_Search_Click(object sender, EventArgs e)
+        {
+            string accountID = lbl_SelectedAccountID.Text;
+            string email = txtBox_Email.Text;
+            
+            string role = null;
+            if      (rb_Receptionist.Checked    ) role = "Receptionist";
+            else if (rb_MaintenanceStaff.Checked) role = "Maintenance Staff";
+
+            string username    = txtBox_Username.Text;
+            string phoneNumber = txtBox_PhoneNumber.Text;
+
+            if (accountID == "" && email == "" && role == null && username == "" && phoneNumber == "")
+            {
+                MessageBox.Show("Please fill in one of the field"); return;
+            }
+
+            DataTable result = Methods.SearchAccount(accountID, email, role, username, phoneNumber);
+            dgv_Account.DataSource = result;
+        }
+
+
         private void btn_Clear_Click(object sender, EventArgs e)
         {
             lbl_SelectedAccountID.Text = string.Empty;
@@ -107,7 +132,10 @@ namespace Inter_University_Recreation_Facilities_Management_System
            
             txtBox_Username.      Text = string.Empty;
             txtBox_PhoneNumber.   Text = string.Empty;
+
+            LoadAccounts();
         }
+
 
         private void btn_Add_Click(object sender, EventArgs e)
         {
@@ -121,8 +149,7 @@ namespace Inter_University_Recreation_Facilities_Management_System
 
             if (email == "" || username == "" || phoneNumber == "" || role == null) 
             {
-                MessageBox.Show("Please fill in all fields and select a role");
-                return;
+                MessageBox.Show("Please fill in all fields and select a role"); return;
             }
 
             DataTable updatedAccounts = Methods.AddAccount(email, username, role, phoneNumber);
