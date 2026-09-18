@@ -53,6 +53,7 @@ namespace Inter_University_Recreation_Facilities_Management_System
             btn_Delete.Left = btn_Update.Left  - btn_Delete.Width - 10;
             btn_Add.   Left = btn_Delete.Left  - btn_Add.Width - 10;
             btn_Clear. Left = btn_Add.Left  - btn_Clear.Width - 10;
+            btn_Search.Left = btn_Clear.Left - btn_Search.Width - 10;
         }
 
 
@@ -100,6 +101,38 @@ namespace Inter_University_Recreation_Facilities_Management_System
         }
 
 
+        private void btn_Search_Click(object sender, EventArgs e)
+        {
+            string facilityName = txtBox_FacilityName.Text;
+            
+            string facilityType = null;
+            if      (rb_Indoor.Checked ) facilityType = "Indoor";
+            else if (rb_Outdoor.Checked) facilityType = "Outdoor";
+
+            string facilityStatus = cBox_Status.Text;
+            
+            double? rate = null;
+            if (!string.IsNullOrWhiteSpace(txtBox_Rate.Text))
+            {
+                if (!double.TryParse(txtBox_Rate.Text, out double parsedRate))
+                {
+                    MessageBox.Show("Please enter a valid rate.");
+                    return;
+                }
+                rate = parsedRate;
+            }
+
+            if (facilityName == "" && facilityType == null && facilityStatus == "" && rate < 0)
+            {
+                MessageBox.Show("Please fill in at least one search criteria."); 
+                return;
+            }
+
+            DataTable searchResults = Methods.SearchFacility(facilityName, facilityType, facilityStatus, rate);
+            dgv_Facility.DataSource = searchResults;
+        }
+
+
         private void btn_Clear_Click(object sender, EventArgs e)
         {
             lbl_SelectedFacilityID.Text = string.Empty;
@@ -113,6 +146,8 @@ namespace Inter_University_Recreation_Facilities_Management_System
 
             cBox_Status.SelectedIndex = 0;
             txtBox_Rate.Text= string.Empty;
+
+            LoadFacility();
         }
 
 

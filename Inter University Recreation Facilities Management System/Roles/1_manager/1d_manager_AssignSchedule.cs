@@ -102,7 +102,30 @@ namespace Inter_University_Recreation_Facilities_Management_System
             {
                 dateTimePicker1.Value = date;
             }
-        }       
+        }
+
+
+        private void btn_Seacrh_Click(object sender, EventArgs e)
+        {
+            string facilityID = txtBox_FacilityID.Text;
+            string accountID = txtBox_AccountID.Text;
+            
+            string maintenanceType = null;
+            if      (rb_Installation.Checked ) maintenanceType = "Installation";
+            else if (rb_Fixing.Checked       ) maintenanceType = "Fixing";
+            else if (rb_Dismantlement.Checked) maintenanceType = "Dismantlement";
+
+            string status = cBox_Status.Text;
+
+            if (facilityID == "" && accountID == "" && maintenanceType == null && status == "")
+            {
+                MessageBox.Show("Please fill in at least one search criterion.");
+                return;
+            }
+
+            DataTable searchResults = Methods.SearchSchedule(facilityID, accountID, maintenanceType, status);
+            dgv_MaintenanceSchedule.DataSource = searchResults;
+        }
 
 
         private void btn_Clear_Click(object sender, EventArgs e)
@@ -119,7 +142,9 @@ namespace Inter_University_Recreation_Facilities_Management_System
             }
 
             cBox_Status.SelectedIndex = 0;
+            LoadSchedule();
         }
+
 
         private void btn_Add_Click(object sender, EventArgs e)
         {

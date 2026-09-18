@@ -55,6 +55,7 @@
             this.btn_Add = new System.Windows.Forms.Button();
             this.btn_Clear = new System.Windows.Forms.Button();
             this.btn_Update = new System.Windows.Forms.Button();
+            this.btn_Search = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Facility)).BeginInit();
             this.SuspendLayout();
             // 
@@ -174,9 +175,9 @@
             this.lbl_FacilityID.Font = new System.Drawing.Font("Bahnschrift SemiBold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_FacilityID.Location = new System.Drawing.Point(45, 218);
             this.lbl_FacilityID.Name = "lbl_FacilityID";
-            this.lbl_FacilityID.Size = new System.Drawing.Size(127, 28);
+            this.lbl_FacilityID.Size = new System.Drawing.Size(117, 28);
             this.lbl_FacilityID.TabIndex = 18;
-            this.lbl_FacilityID.Text = "Account ID:";
+            this.lbl_FacilityID.Text = "Facility ID:";
             // 
             // lbl_FacilityName
             // 
@@ -328,10 +329,23 @@
             this.btn_Update.UseVisualStyleBackColor = true;
             this.btn_Update.Click += new System.EventHandler(this.btn_Update_Click);
             // 
+            // btn_Search
+            // 
+            this.btn_Search.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Search.Font = new System.Drawing.Font("Bahnschrift SemiBold", 19.8F, System.Drawing.FontStyle.Bold);
+            this.btn_Search.Location = new System.Drawing.Point(782, 415);
+            this.btn_Search.Name = "btn_Search";
+            this.btn_Search.Size = new System.Drawing.Size(170, 55);
+            this.btn_Search.TabIndex = 32;
+            this.btn_Search.Text = "Search";
+            this.btn_Search.UseVisualStyleBackColor = true;
+            this.btn_Search.Click += new System.EventHandler(this.btn_Search_Click);
+            // 
             // manager_ManageFacility
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btn_Search);
             this.Controls.Add(this.btn_Update);
             this.Controls.Add(this.btn_Clear);
             this.Controls.Add(this.btn_Add);
@@ -383,5 +397,6 @@
         private System.Windows.Forms.Button btn_Add;
         private System.Windows.Forms.Button btn_Clear;
         private System.Windows.Forms.Button btn_Update;
+        private System.Windows.Forms.Button btn_Search;
     }
 }

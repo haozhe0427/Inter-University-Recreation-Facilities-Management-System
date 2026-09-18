@@ -50,32 +50,42 @@ namespace Inter_University_Recreation_Facilities_Management_System
         // Logout and return to the login page.
         public event EventHandler To_Login;
         private void btn_Logout_Click(object sender, EventArgs e)
-        { To_Login?.Invoke(this, EventArgs.Empty); }
+        { 
+            To_Login?.Invoke(this, EventArgs.Empty); 
+        }
 
 
         // Manage user accounts
         // (add, delete Reception & Maintenance Staff).
         public event EventHandler To_ManageAccount;
         private void btn_ManageAccount_Click(object sender, EventArgs e)
-        { To_ManageAccount?.Invoke(this, EventArgs.Empty); }
+        { 
+            To_ManageAccount?.Invoke(this, EventArgs.Empty); 
+        }
 
 
         // Manage Sports and Recreation facilities information for each of the participated University 
         // (add, edit, delete – facility type, rate, etc).
         public event EventHandler To_ManageFacility;
         private void btn_ManageFacility_Click(object sender, EventArgs e)
-        { To_ManageFacility?.Invoke(this, EventArgs.Empty); }
+        { 
+            To_ManageFacility?.Invoke(this, EventArgs.Empty);
+        }
 
 
         // Assign maintenance schedule and assign maintenance staff to handle routine maintenance of the facilities.
         public event EventHandler To_AssignSchedule;
         private void btn_AssignSchedule_Click(object sender, EventArgs e)
-        { To_AssignSchedule?.Invoke(this, EventArgs.Empty); }
+        {
+            To_AssignSchedule?.Invoke(this, EventArgs.Empty); 
+        }
 
 
         // View and approve equipment repair or replacement request from the Maintenance Staff.
         public event EventHandler To_EquipmentRequest;
         private void btn_Request_Click(object sender, EventArgs e)
-        { To_EquipmentRequest?.Invoke(this, EventArgs.Empty); }
+        { 
+            To_EquipmentRequest?.Invoke(this, EventArgs.Empty); 
+        }
     }
 }

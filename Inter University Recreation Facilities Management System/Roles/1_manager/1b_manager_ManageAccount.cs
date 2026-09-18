@@ -111,7 +111,7 @@ namespace Inter_University_Recreation_Facilities_Management_System
 
             if (accountID == "" && email == "" && role == null && username == "" && phoneNumber == "")
             {
-                MessageBox.Show("Please fill in one of the field"); return;
+                MessageBox.Show("Please fill at least one search criteria."); return;
             }
 
             DataTable result = Methods.SearchAccount(accountID, email, role, username, phoneNumber);

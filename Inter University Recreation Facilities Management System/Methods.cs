@@ -166,7 +166,7 @@ namespace Inter_University_Recreation_Facilities_Management_System
                     if (dataTable.Rows.Count == 0)
                     {
                         MessageBox.Show("No matching records found.");
-                        LoadAccounts(); // Reload all accounts if no matches found
+                        return LoadAccounts(); // Reload all accounts if no matches found
                     }
 
                     return dataTable;
@@ -304,6 +304,62 @@ namespace Inter_University_Recreation_Facilities_Management_System
             }
         }
 
+
+        //----------------------------------------------------------------------------------------------------------------------------------//
+        //                                      1c_manager_ManageFacility.cs : SearchFacility ; ln 120                                      //                                                  
+        //----------------------------------------------------------------------------------------------------------------------------------//
+        public static DataTable SearchFacility(string facilityName, string facilityType, string facilityStatus, double? rate)
+        {
+            using (SqlConnection connection = new SqlConnection(database))
+            {
+                connection.Open();
+
+                var conditions = new List<string>();
+                var parameters = new List<SqlParameter>();
+
+                if (!string.IsNullOrEmpty(facilityName))
+                {
+                    conditions.Add("FacilityName = @FacilityName");
+                    parameters.Add(new SqlParameter("@FacilityName", facilityName));
+                }
+
+                if (!string.IsNullOrEmpty(facilityType))
+                {
+                    conditions.Add("FacilityType = @FacilityType");
+                    parameters.Add(new SqlParameter("@FacilityType", facilityType));
+                }
+
+                if (!string.IsNullOrEmpty(facilityStatus))
+                {
+                    conditions.Add("FacilityStatus = @FacilityStatus");
+                    parameters.Add(new SqlParameter("@FacilityStatus", facilityStatus));
+                }
+
+                if (rate.HasValue)
+                {
+                    conditions.Add("Rate = @Rate");
+                    parameters.Add(new SqlParameter("@Rate", rate.Value));
+                }
+
+                string selectQuery = "SELECT * FROM FACILITY WHERE " + string.Join(" AND ", conditions);
+
+                using (SqlDataAdapter adapter = new SqlDataAdapter(selectQuery, connection))
+                {
+                    adapter.SelectCommand.Parameters.AddRange(parameters.ToArray());
+
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+
+                    if (dataTable.Rows.Count == 0)
+                    {
+                        MessageBox.Show("No matching records found.");
+                        return LoadFacility(); // Reload all facilities if no matches found
+                    }
+
+                    return dataTable;
+                }
+            }
+        }
 
 
         //----------------------------------------------------------------------------------------------------------------------------------//
@@ -449,6 +505,61 @@ namespace Inter_University_Recreation_Facilities_Management_System
 
 
         //----------------------------------------------------------------------------------------------------------------------------------//
+        //                                     1d_manager_AssignSchedule.cs : SearchSchedules ; ln 127                                      //                                                  
+        //----------------------------------------------------------------------------------------------------------------------------------//
+        public static DataTable SearchSchedule(string facilityID, string accountID, string maintenanceType, string status)
+        {
+            using (SqlConnection connection = new SqlConnection(database))
+            {
+                connection.Open();
+
+                var conditions = new List<string>();
+                var parameters = new List<SqlParameter>();
+
+                if (!string.IsNullOrEmpty(facilityID))
+                {
+                    conditions.Add("FacilityID = @FacilityID");
+                    parameters.Add(new SqlParameter("@FacilityID", facilityID));
+                }
+                if (!string.IsNullOrEmpty(accountID))
+                {
+                    conditions.Add("AccountID = @AccountID");
+                    parameters.Add(new SqlParameter("@AccountID", accountID));
+                }
+                if (!string.IsNullOrEmpty(maintenanceType))
+                {
+                    conditions.Add("MaintenanceType = @MaintenanceType");
+                    parameters.Add(new SqlParameter("@MaintenanceType", maintenanceType));
+                }
+                if (!string.IsNullOrEmpty(status))
+                {
+                    conditions.Add("MaintenanceStatus = @MaintenanceStatus");
+                    parameters.Add(new SqlParameter("@MaintenanceStatus", status));
+                }
+
+                string selectQuery = "SELECT MaintenanceID, FacilityID, AccountID, MaintenanceType, MaintenanceStatus, MaintenanceDate " +
+                                     "FROM MAINTENANCE WHERE " + string.Join(" AND ", conditions);
+
+                using (SqlDataAdapter adapter = new SqlDataAdapter(selectQuery, connection))
+                {
+                    adapter.SelectCommand.Parameters.AddRange(parameters.ToArray());
+
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+
+                    if (dataTable.Rows.Count == 0)
+                    {
+                        MessageBox.Show("No matching records found.");
+                        return LoadSchedules(); // Reload all schedules if no matches found
+                    }
+
+                    return dataTable;
+                }
+            }
+        }
+
+
+        //----------------------------------------------------------------------------------------------------------------------------------//
         //                                     1d_manager_AssignSchedule.cs : AssignSchedules ; ln 140                                      //                                                  
         //----------------------------------------------------------------------------------------------------------------------------------//
         public static DataTable AssignSchedule(string facilityID, string accountID, string maintenanceType, DateTime date)
@@ -507,7 +618,7 @@ namespace Inter_University_Recreation_Facilities_Management_System
 
 
         //----------------------------------------------------------------------------------------------------------------------------------//
-        //                                     1c_manager_AssignSchedule.cs : UpdateSchedules ; ln 167                                      //                                                  
+        //                                     1d_manager_AssignSchedule.cs : UpdateSchedules ; ln 167                                      //                                                  
         //----------------------------------------------------------------------------------------------------------------------------------//
         public static DataTable UpdateSchedule(string maintenanceID, string facilityID, string accountID, string maintenanceType, string status, DateTime date)
         {

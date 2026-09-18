@@ -58,6 +58,7 @@
             this.lbl_Date = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.txtBox_FacilityID = new System.Windows.Forms.TextBox();
+            this.btn_Seacrh = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_MaintenanceSchedule)).BeginInit();
             this.SuspendLayout();
             // 
@@ -360,10 +361,23 @@
             this.txtBox_FacilityID.Size = new System.Drawing.Size(287, 35);
             this.txtBox_FacilityID.TabIndex = 50;
             // 
+            // btn_Seacrh
+            // 
+            this.btn_Seacrh.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Seacrh.Font = new System.Drawing.Font("Bahnschrift SemiBold", 19.8F, System.Drawing.FontStyle.Bold);
+            this.btn_Seacrh.Location = new System.Drawing.Point(977, 415);
+            this.btn_Seacrh.Name = "btn_Seacrh";
+            this.btn_Seacrh.Size = new System.Drawing.Size(170, 55);
+            this.btn_Seacrh.TabIndex = 51;
+            this.btn_Seacrh.Text = "Search";
+            this.btn_Seacrh.UseVisualStyleBackColor = true;
+            this.btn_Seacrh.Click += new System.EventHandler(this.btn_Seacrh_Click);
+            // 
             // manager_AssignSchedule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btn_Seacrh);
             this.Controls.Add(this.txtBox_FacilityID);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.lbl_Date);
@@ -420,5 +434,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;
         private System.Windows.Forms.TextBox txtBox_FacilityID;
+        private System.Windows.Forms.Button btn_Seacrh;
     }
 }
