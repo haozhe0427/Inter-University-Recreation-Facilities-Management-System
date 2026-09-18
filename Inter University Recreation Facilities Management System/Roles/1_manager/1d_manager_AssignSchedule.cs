@@ -143,5 +143,32 @@ namespace Inter_University_Recreation_Facilities_Management_System
             MessageBox.Show("Schedule assigned successfully.");
             btn_Clear_Click(sender, e);
         }
+
+
+        private void btn_Update_Click(object sender, EventArgs e)
+        {
+            string maintenanceID = lbl_SelectedMaintenanceID.Text;
+            string facilityID    = txtBox_FacilityID.Text;
+            string accountID     = txtBox_AccountID.Text;
+
+            string maintenanceType = null;
+            if      (rb_Installation.Checked ) maintenanceType = "Installation";
+            else if (rb_Fixing.Checked       ) maintenanceType = "Fixing";
+            else if (rb_Dismantlement.Checked) maintenanceType = "Dismantlement";
+
+            string status = cBox_Status.Text;
+
+            if (maintenanceID == "" || facilityID == "" || accountID == "" || maintenanceType == null || status == "")
+            {
+                MessageBox.Show("Please select the maintenance record to update.");
+                return;
+            }
+
+            DataTable updateSchedules = Methods.UpdateSchedule(maintenanceID, facilityID, accountID, maintenanceType, status, dateTimePicker1.Value);
+            dgv_MaintenanceSchedule.DataSource = updateSchedules;
+
+            MessageBox.Show("Schedule updated successfully.");
+            btn_Clear_Click(sender, e);
+        }
     }
 }

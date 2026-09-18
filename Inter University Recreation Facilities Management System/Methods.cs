@@ -116,7 +116,7 @@ namespace Inter_University_Recreation_Facilities_Management_System
 
 
         //----------------------------------------------------------------------------------------------------------------------------------//
-        //                                      1a_manager_ManageAccount.cs : LoadAccounts ; ln 68                                          //                                                  
+        //                                      1b_manager_ManageAccount.cs : LoadAccounts ; ln 68                                          //                                                  
         //----------------------------------------------------------------------------------------------------------------------------------//
         public static DataTable LoadAccounts()
         {
@@ -139,7 +139,7 @@ namespace Inter_University_Recreation_Facilities_Management_System
 
 
         //----------------------------------------------------------------------------------------------------------------------------------//
-        //                                        1a_manager_ManageAccount.cs : AddAccount ; ln 128                                         //                                                  
+        //                                        1b_manager_ManageAccount.cs : AddAccount ; ln 128                                         //                                                  
         //----------------------------------------------------------------------------------------------------------------------------------//
         public static DataTable AddAccount(string email, string username, string role, string phoneNumber) 
         {
@@ -193,7 +193,7 @@ namespace Inter_University_Recreation_Facilities_Management_System
 
 
         //----------------------------------------------------------------------------------------------------------------------------------//
-        //                                        1a_manager_ManageAccount.cs : DeleteAccount ; ln 162                                      //                                                  
+        //                                        1b_manager_ManageAccount.cs : DeleteAccount ; ln 162                                      //                                                  
         //----------------------------------------------------------------------------------------------------------------------------------//
         public static DataTable DeleteAccount(string accountID) 
         {
@@ -225,7 +225,7 @@ namespace Inter_University_Recreation_Facilities_Management_System
 
 
         //----------------------------------------------------------------------------------------------------------------------------------//
-        //                                        1b_manager_ManageFacility.cs : LoadFacility ; ln 61                                       //                                                  
+        //                                        1c_manager_ManageFacility.cs : LoadFacility ; ln 61                                       //                                                  
         //----------------------------------------------------------------------------------------------------------------------------------//
         public static DataTable LoadFacility() 
         {
@@ -247,7 +247,7 @@ namespace Inter_University_Recreation_Facilities_Management_System
 
 
         //----------------------------------------------------------------------------------------------------------------------------------//
-        //                                        1b_manager_ManageFacility.cs : AddFacility ; ln 137                                       //                                                  
+        //                                        1c_manager_ManageFacility.cs : AddFacility ; ln 137                                       //                                                  
         //----------------------------------------------------------------------------------------------------------------------------------//
         public static DataTable AddFacility(string facility_name, string facility_type, string facility_status, double facility_rate) 
         {
@@ -297,7 +297,7 @@ namespace Inter_University_Recreation_Facilities_Management_System
 
 
         //----------------------------------------------------------------------------------------------------------------------------------//
-        //                                      1b_manager_ManageFacility.cs : DeleteFacility ; ln 168                                      //                                                  
+        //                                      1c_manager_ManageFacility.cs : DeleteFacility ; ln 168                                      //                                                  
         //----------------------------------------------------------------------------------------------------------------------------------//
         public static DataTable DeleteFacility(string facilityID) 
         {
@@ -327,7 +327,7 @@ namespace Inter_University_Recreation_Facilities_Management_System
 
 
         //----------------------------------------------------------------------------------------------------------------------------------//
-        //                                     1b_manager_ManageFacility.cs : UpdateFacility ; ln 201                                       //                                                  
+        //                                     1c_manager_ManageFacility.cs : UpdateFacility ; ln 201                                       //                                                  
         //----------------------------------------------------------------------------------------------------------------------------------//
         public static DataTable UpdateFacility(string facility_id, string facility_name, string facility_type, string facility_status, double facility_rate) 
         {
@@ -367,7 +367,7 @@ namespace Inter_University_Recreation_Facilities_Management_System
 
 
         //----------------------------------------------------------------------------------------------------------------------------------//
-        //                                     1b_manager_AssignSchedule.cs : LoadSchedules ; ln 68                                         //                                                  
+        //                                     1d_manager_AssignSchedule.cs : LoadSchedules ; ln 68                                         //                                                  
         //----------------------------------------------------------------------------------------------------------------------------------//
         public static DataTable LoadSchedules()
         {
@@ -388,6 +388,9 @@ namespace Inter_University_Recreation_Facilities_Management_System
         }
 
 
+        //----------------------------------------------------------------------------------------------------------------------------------//
+        //                                     1d_manager_AssignSchedule.cs : AssignSchedules ; ln 140                                      //                                                  
+        //----------------------------------------------------------------------------------------------------------------------------------//
         public static DataTable AssignSchedule(string facilityID, string accountID, string maintenanceType, DateTime date)
         {
             using (SqlConnection connection = new SqlConnection(database))
@@ -432,6 +435,48 @@ namespace Inter_University_Recreation_Facilities_Management_System
 
                 string selectQuery = "SELECT MaintenanceID, FacilityID, AccountID, MaintenanceType, MaintenanceStatus, MaintenanceDate " +
                                      "FROM MAINTENANCE ";
+
+                using (SqlDataAdapter adapter = new SqlDataAdapter(selectQuery, connection))
+                {
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+                    return dataTable;
+                }
+            }
+        }
+
+
+        //----------------------------------------------------------------------------------------------------------------------------------//
+        //                                     1c_manager_AssignSchedule.cs : UpdateSchedules ; ln 167                                      //                                                  
+        //----------------------------------------------------------------------------------------------------------------------------------//
+        public static DataTable UpdateSchedule(string maintenanceID, string facilityID, string accountID, string maintenanceType, string status, DateTime date)
+        {
+            using (SqlConnection connection = new SqlConnection(database))
+            {
+                connection.Open();
+
+                string updateQuery = "UPDATE MAINTENANCE SET " +
+                                     "FacilityID = @FacilityID, " +
+                                     "AccountID  = @AccountID, " +
+                                     "MaintenanceType = @MaintenanceType, " +
+                                     "MaintenanceStatus = @MaintenanceStatus, " +
+                                     "MaintenanceDate = @MaintenanceDate " +
+                                     "WHERE MaintenanceID = @MaintenanceID";
+
+                using (SqlCommand updateCommand = new SqlCommand(updateQuery, connection))
+                {
+                    updateCommand.Parameters.AddWithValue("@FacilityID", facilityID);
+                    updateCommand.Parameters.AddWithValue("@AccountID", accountID);
+                    updateCommand.Parameters.AddWithValue("@MaintenanceType", maintenanceType);
+                    updateCommand.Parameters.AddWithValue("@MaintenanceStatus", status);
+                    updateCommand.Parameters.AddWithValue("@MaintenanceDate", date);
+                    updateCommand.Parameters.AddWithValue("@MaintenanceID", maintenanceID);
+
+                    updateCommand.ExecuteNonQuery();
+                }
+
+                string selectQuery = "SELECT MaintenanceID, FacilityID, AccountID, MaintenanceType, MaintenanceStatus, MaintenanceDate " +
+                                     "FROM MAINTENANCE";
 
                 using (SqlDataAdapter adapter = new SqlDataAdapter(selectQuery, connection))
                 {
